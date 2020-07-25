@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Tittilium Web";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/TitilliumWeb-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Vollkorn";
+  font-weight: 400;
+  font-style: light;
+  src: url("../fonts/Vollkorn-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Muli";
+  font-weight: 400;
+  font-style: light;
+  src: url("../fonts/Muli-VariableFont_wght.ttf") format("truetype");
+}

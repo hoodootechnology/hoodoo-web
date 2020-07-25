@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 /*
@@ -13,20 +13,48 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const Image = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+const Image = props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        images: allFile {
+          edges {
+            node {
+              relativePath
+              name
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+              extension
+              publicURL
+            }
           }
         }
       }
-    }
-  `)
+    `}
+    render={data => {
+      const image = data.images.edges.find(n => {
+        return n.node.relativePath.includes(props.filename)
+      })
+      if (!image) {
+        return null
+      }
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-}
+      //const imageSizes = image.node.childImageSharp.sizes; sizes={imageSizes}
+      if (!image.node.childImageSharp && image.node.extension === "svg") {
+        return (
+          <img
+            style={image.node.imageStyle}
+            src={image.node.publicURL}
+            alt={props.alt}
+          />
+        )
+      } else
+        return <Img alt={props.alt} fluid={image.node.childImageSharp.fluid} />
+    }}
+  />
+)
 
 export default Image

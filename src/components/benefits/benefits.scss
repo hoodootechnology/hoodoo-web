@@ -1,0 +1,25 @@
+@import "../variables.scss";
+.benefit-container {
+  min-height: 100vh;
+  font-family: "Muli", serif;
+  color: $red;
+  position: relative;
+  padding-top: 15%;
+  .benefit-details {
+    text-align: center;
+    margin: auto;
+    .details-wrapper {
+      display: inline-block;
+      vertical-align: middle;
+      @media only screen and (max-width: 767px) {
+        height: 200px;
+        width: 200px;
+        margin: auto;
+        margin-bottom: 30px;
+      }
+      .step {
+        font-weight: bold;
+      }
+    }
+  }
+}

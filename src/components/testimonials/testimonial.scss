@@ -1,0 +1,74 @@
+@import "../variables.scss";
+.testimonial-container {
+  font-family: "Muli", serif;
+  min-height: 100vh;
+  position: relative;
+  padding-top: 10%;
+  .heading {
+    color: $dark-blue;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .testimonial {
+    border: 1px solid $dark-blue;
+    margin: 10px;
+    padding: 20px;
+    min-height: 280px;
+    height: 280px;
+    display: inline-block;
+    width: calc(33% - 20px);
+    vertical-align: top;
+    @media only screen and (max-width: 768px) {
+      width: calc(100% - 20px);
+    }
+    .message-wrapper {
+      height: calc(100% - 60px);
+      overflow-y: auto;
+    }
+  }
+  .carousel {
+    min-height: 350px;
+  }
+  .carousel-inner {
+    width: 80%;
+    margin: auto;
+    p {
+      margin-bottom: 0;
+      color: $dark-blue;
+    }
+    .user-name {
+      font-weight: bold;
+    }
+    .date {
+      font-size: 12px;
+      padding: 5px 0 10px 0;
+    }
+    .hr {
+      margin-bottom: 10px;
+      background: $dark-blue;
+    }
+    .ratings {
+      margin-bottom: 20px;
+      .stars {
+        color: $light-blue;
+        font-size: 12px;
+        margin-right: 4px;
+      }
+    }
+  }
+  .carousel-indicators li {
+    background-color: $dark-blue;
+  }
+  .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233D5A80' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  }
+  .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233D5A80' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+  }
+  .scroll-wrapper {
+    color: $dark-blue;
+    .arrow-icon {
+      cursor: pointer;
+    }
+  }
+}

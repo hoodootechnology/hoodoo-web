@@ -1,0 +1,13 @@
+@import "../variables.scss";
+.scroll-wrapper {
+  color: $dark-blue;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  .arrow-icon {
+    cursor: pointer;
+  }
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+}

@@ -1,0 +1,73 @@
+@import "../variables.scss";
+.about-container,
+.desc-container,
+.team-container {
+  min-height: calc(100vh - 60px);
+  position: relative;
+  font-family: "Muli", serif;
+  .about-wrapper,
+  .desc-wrapper,
+  .team-wrapper {
+    padding: 30px 100px;
+    @media only screen and (max-width: 767px) {
+      padding: 30px;
+    }
+  }
+}
+
+.about-container {
+  .sub-heading {
+    color: $red;
+  }
+  .about-heading {
+    margin-bottom: 50px;
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.desc-container {
+  padding-top: 15%;
+  .desc-wrapper {
+    color: $dark-blue;
+    float: none;
+    margin: auto;
+    &::before {
+      content: '';
+      position: absolute;
+      height: 300px;
+      width: 300px;
+      background-color: $light-blue;
+      border-radius: 50%;
+      z-index: -1;
+      top: -100px;
+      left: 0;
+      opacity: 0.5;
+    }
+  }
+}
+
+.team-container {
+  padding-top: 10%;
+  .team-wrapper {
+    .profile-image {
+      .gatsby-image-wrapper {
+        width: 200px;
+        border-radius: 50%;
+        height: 200px;
+        margin: auto;
+        margin-bottom: 30px;
+      }
+    }
+    .profile-desc {
+      .social-media {
+        .social-icon {
+          font-size: 24px;
+          color: $red;
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+}

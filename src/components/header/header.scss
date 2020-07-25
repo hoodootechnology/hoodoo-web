@@ -1,0 +1,215 @@
+@import "../variables.scss";
+.header-container {
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transform: translateZ(0);
+  &.white-bg {
+    background-color: white;
+    -webkit-transition: background-color 0.5s linear;
+    -moz-transition: background-color 0.5s linear;
+    -o-transition: background-color 0.5s linear;
+    -ms-transition: background-color 0.5s linear;
+    transition: background-color 0.5s linear;
+  }
+  &.blue-bg {
+    background-color: $light-blue;
+    -webkit-transition: background-color 0.5s linear;
+    -moz-transition: background-color 0.5s linear;
+    -o-transition: background-color 0.5s linear;
+    -ms-transition: background-color 0.5s linear;
+    transition: background-color 0.5s linear;
+  }
+  .header-wrapper {
+    padding: 10px 20px 0 20px;
+    @media only screen and (max-width: 767px) {
+      background-color: $light-blue;
+    }
+    .header {
+      a {
+        color: white;
+        text-decoration: none;
+      }
+      .header-title {
+        color: $dark-blue;
+        font-size: 24px;
+        padding-left: 10px;
+      }
+      .btn-primary {
+        background-color: $dark-blue;
+        font-size: 14px;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        &:hover {
+          color: $dark-blue;
+          background-color: white;
+          border: 1px solid $dark-blue;
+        }
+        @media only screen and (max-width: 767px) {
+          padding: 10px;
+          font-size: 12px;
+        }
+      }
+      .gatsby-image-wrapper {
+        max-width: 15px;
+        width: 50px;
+        display: inline-block;
+      }
+      .vertical-line {
+        padding: 14px 1px 14px 1px;
+        border-left: 1px solid $black;
+        display: inline-block;
+        margin: 0 20px;
+        position: relative;
+        top: 10px;
+        @media only screen and (max-width: 767px) {
+          margin: 0 5px;
+        }
+      }
+      .menu-container {
+        .bars-icon {
+          color: $black;
+          font-size: 20px;
+          position: relative;
+          top: 6px;
+          cursor: pointer;
+        }
+      }
+      .menu-list-container {
+        position: absolute;
+        background-color: $black;
+        color: white;
+        min-height: 100vh;
+        top: 0;
+        z-index: 2;
+        padding: 20px 50px;
+        -webkit-transform-origin: 100% 0;
+        -ms-transform-origin: 100% 0;
+        transform-origin: 100% 0;
+        -webkit-transform: skew(-10deg);
+        -ms-transform: skew(-10deg);
+        transform: skew(-10deg);
+        transition: transform .5s ease-in-out;
+        overflow: hidden;
+        @media only screen and (max-width: 767px) {
+          -webkit-transform: skew(0deg);
+          -ms-transform: skew(0deg);
+          transform: skew(0deg);
+          padding: 10px;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 200px;
+          background-image: url("../../images/leftlines.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          z-index: -1;
+          top: 0px;
+          left: -20px;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 300px;
+          background-image: url("../../images/rightlines.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          z-index: -1;
+          right: 0px;
+        }
+        .menu-list-wrapper {
+          -webkit-transform: skew(10deg);
+          -ms-transform: skew(10deg);
+          transform: skew(10deg);
+          @media only screen and (max-width: 767px) {
+            -webkit-transform: skew(0deg);
+            -ms-transform: skew(0deg);
+            transform: skew(0deg);
+          }
+          .col-md-6 {
+            @media only screen and (max-width: 768px) {
+              flex: 0 0 100%;
+              max-width: 100%;
+            }
+          }
+        }
+        .vertical-line {
+          border-left: 1px solid white;
+        }
+        .cross-icon {
+          font-size: 20px;
+          position: relative;
+          top: 6px;
+          cursor: pointer;
+          color: white;
+        }
+        .btn-primary {
+          background-color: $red;
+          &:hover {
+            color: $red;
+            background-color: white;
+            border: 1px solid $red;
+          }
+        }
+        .menu-list {
+          font-family: "Vollkorn", sans-serif;
+          list-style: none;
+          padding-top: 10vh;
+          .menu-items {
+            margin-bottom: 50px;
+            color: $sky-blue;
+            cursor: pointer;
+            padding-bottom: 2px;
+            transition: transform .5s ease-in-out;
+            @media only screen and (max-width: 767px) {
+              margin-bottom: 20px;
+              font-size: 16px;
+            }
+            .right-caret {
+              visibility: hidden;
+              .right-caret-icon {
+                font-size: 20px;
+                margin-left: 10px;
+              }
+            }
+            &:hover {
+              .text {
+                border-bottom: 2px solid $red;
+              }
+              .right-caret {
+                visibility: visible;
+              }
+            }
+          }
+        }
+      }
+      .hide {
+        .menu-list-container {
+          transform: translate3d(50vw, 0, 0);
+          overflow: hidden;
+          @media only screen and (max-width: 767px) {
+            transform: translate3d(100vw, 0, 0);
+          }
+        }
+      }
+      .show {
+        .menu-list-container {
+          transform: translate3d(0vw, 0, 0);
+          -webkit-transform: skew(-10deg);
+          -ms-transform: skew(-10deg);
+          transform: skew(-10deg);
+          @media only screen and (max-width: 767px) {
+            -webkit-transform: skew(0deg);
+            -ms-transform: skew(0deg);
+            transform: skew(0deg);
+          }
+        }
+      }
+    }
+  }
+}

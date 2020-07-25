@@ -1,0 +1,23 @@
+@import "../variables.scss";
+.footer-container {
+  padding: 70px;
+  font-family: "Muli", serif;
+  background-color: $light-blue;
+  color: $dark-blue;
+  .footer-title {
+    font-weight: bold;
+    color: white;
+  }
+  .footer-links {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  .footer {
+    font-size: 12px;
+  }
+  hr {
+    margin-top: calc(1.45rem - 1px);
+    background: #ffffffa8;
+    height: 2px;
+  }
+}

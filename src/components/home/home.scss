@@ -1,0 +1,87 @@
+@import "../variables.scss";
+.home-container {
+  min-height: calc(100vh - 60px);
+  position: relative;
+  .background {
+    background-image: url("../../images/homepage.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: calc(100vh - 300px);
+    margin-top: 30px;
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+  .home-text-wrapper {
+    padding: 150px 80px;
+    @media only screen and (max-width: 767px) {
+      padding: 50px 40px;
+    }
+    .home-text {
+      font-size: 60px;
+      color: $dark-blue;
+      @media screen and (max-width: 900px) and (min-width: 426px) {
+        font-size: 40px;
+      }
+      @media only screen and (max-width: 767px) {
+        font-size: 30px;
+        text-align: center;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        background-color: $sky-blue;
+        border-radius: 50%;
+        z-index: -1;
+        top: 80px;
+        left: 20px;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background-color: $light-blue;
+        border-radius: 50%;
+        z-index: -1;
+        right: 50px;
+        @media only screen and (max-width: 767px) {
+          display: none;
+          text-align: center;
+        }
+      }
+    }
+    .call-us-button {
+      background-color: $red;
+      padding: 10px 50px;
+      border-radius: 30px;
+      color: white;
+      display: inline-block;
+      cursor: pointer;
+      background: linear-gradient(106deg, rgba(61, 90, 128, 1) 0%, rgba(61, 90, 128, 1) 34%, rgba(232, 80, 91, 1) 100%);
+      &:hover {
+        background: linear-gradient(rgba(232, 80, 91, 1), rgba(232, 80, 91, 1));
+      }
+    }
+    .vertical-line {
+      padding: 14px 1px 14px 1px;
+      border-left: 1px solid $black;
+      display: inline-block;
+      margin: 0 20px;
+      position: relative;
+      top: 10px;
+    }
+    .chat-image {
+      display: inline-block;
+      cursor: pointer;
+      img {
+        top: 10px;
+        width: 35px;
+        height: 35px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

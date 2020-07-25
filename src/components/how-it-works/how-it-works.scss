@@ -1,0 +1,42 @@
+@import "../variables.scss";
+.steps-container {
+  font-family: "Muli", serif;
+  color: $dark-blue;
+  min-height: 100vh;
+  position: relative;
+  padding-top: 10%;
+  .heading {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  .steps-details {
+    text-align: center;
+    margin: auto;
+    @media only screen and (max-width: 768px) {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .details-wrapper {
+      display: inline-block;
+      vertical-align: top;
+      img {
+        height: 100px;
+        width: 100px;
+        margin: auto;
+        margin-bottom: 30px;
+      }
+      .step {
+        font-weight: bold;
+      }
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 20px;
+        .step-title {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

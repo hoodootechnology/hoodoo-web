@@ -5,6 +5,11 @@
   color: $red;
   position: relative;
   padding-top: 15%;
+  .heading {
+    color: $dark-blue;
+    text-align: center;
+    padding-bottom: 30px;
+  }
   .benefit-details {
     text-align: center;
     margin: auto;
@@ -12,10 +17,12 @@
       display: inline-block;
       vertical-align: middle;
       @media only screen and (max-width: 767px) {
-        height: 200px;
-        width: 200px;
         margin: auto;
         margin-bottom: 30px;
+        img {
+          height: 200px;
+          width: 80%;
+        }
       }
       .step {
         font-weight: bold;

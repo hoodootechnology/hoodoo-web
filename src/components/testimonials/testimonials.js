@@ -8,70 +8,85 @@ export default class Testimonials extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      width: 1058, // or your default width here
+      width: 0,
+      display_content: [], // or your default width here
     }
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
   componentDidMount() {
-    this.setWindowWidth() // Set width
+    window.addEventListener("resize", this.updateWindowDimensions)
+    this.updateWindowDimensions()
   }
-  setWindowWidth = () => {
-    this.setState({
-      width: window.innerWidth,
-    })
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions)
   }
-  render() {
-    var testimonials = [
+
+  updateWindowDimensions() {
+    this.setState(
       {
-        name: "Rupjit Chakraborty",
-        date: "19th July",
-        msg:
-          "I was skeptical before hiring them due to covid, but their focus on cook’s hygiene and sanitization in trial got me to subscribe for the monthly plan. Its going great guys..keep it up!",
-        rating: 5,
+        width: window.innerWidth,
       },
-      {
-        name: "Shalinee Singh",
-        date: "19th July",
-        msg:
-          "Couldn’t ask for more. I get home cooked food even in the pandemic. Wish you could deliver groceries too with the cook.",
-        rating: 4,
-      },
-      {
-        name: "Utkarsh Tiwari",
-        date: "19th July",
-        msg:
-          "I was skeptical at first, Hoodoo looked like an agency to me. Nevertheless we hired a cook from them.It has been two months now and I think it was a good decision. Hoodoo delivers on its promise of providing reliable cooks.",
-        rating: 5,
-      },
-    ]
-    var applicable_content = () => {
-      let content = []
-      if (this.state.innerWidth <= 768) {
-        testimonials.forEach((item, i) => {
-          content[`page${i}`] = [item]
+      function () {
+        this.setState({
+          display_content: this.applicable_content(),
         })
-        return content
-      } else {
-        for (let i = 0; i < testimonials.length; i = i + 3) {
-          for (let x = 0; x < 3; x++) {
-            if (x === 0) {
-              content[`page${i}`] = [testimonials[i]]
-            } else {
-              content[`page${i}`].push(testimonials[i])
-            }
+      }
+    )
+  }
+
+  testimonials = [
+    {
+      name: "Rupjit Chakraborty",
+      date: "19th July",
+      msg:
+        "I was skeptical before hiring them due to covid, but their focus on cook’s hygiene and sanitization in trial got me to subscribe for the monthly plan. Its going great guys..keep it up!",
+      rating: 5,
+    },
+    {
+      name: "Shalinee Singh",
+      date: "19th July",
+      msg:
+        "Couldn’t ask for more. I get home cooked food even in the pandemic. Wish you could deliver groceries too with the cook.",
+      rating: 4,
+    },
+    {
+      name: "Utkarsh Tiwari",
+      date: "19th July",
+      msg:
+        "I was skeptical at first, Hoodoo looked like an agency to me. Nevertheless we hired a cook from them.It has been two months now and I think it was a good decision. Hoodoo delivers on its promise of providing reliable cooks.",
+      rating: 5,
+    },
+  ]
+  applicable_content = () => {
+    let content = []
+    if (this.state.width <= 768) {
+      this.testimonials.forEach((item, i) => {
+        content[`page${i}`] = [item]
+      })
+      return content
+    } else {
+      for (let i = 0; i < this.testimonials.length; i = i + 3) {
+        for (let x = 0; x < 3; x++) {
+          if (x === 0) {
+            content[`page${i}`] = [this.testimonials[i]]
+          } else {
+            content[`page${i}`].push(this.testimonials[i])
           }
-          return content
         }
+        return content
       }
     }
-    var display_content = applicable_content()
+  }
+  render() {
     return (
       <div className="testimonial-container" ref={this.props.setRef}>
-        <h1 className="heading"> what customers are saying </h1>
+        <h1 className="heading">Reviews about us</h1>
         <Carousel>
-          {Object.keys(display_content).map((page, i) => {
+          {Object.keys(this.state.display_content).map((page, i) => {
             return (
               <Carousel.Item key={i} className="carousel-container">
-                {display_content[page].map((testimonial, test_i) => {
+                {this.state.display_content[page].map((testimonial, test_i) => {
                   return (
                     <div key={test_i} className="testimonial">
                       <p className="user-name"> {testimonial.name} </p>

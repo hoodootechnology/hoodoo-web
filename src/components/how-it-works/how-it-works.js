@@ -36,7 +36,7 @@ export default class HowItWorks extends React.Component {
     ]
     return (
       <div className="steps-container" ref={this.props.setRef}>
-        <h1 className="heading">how it works</h1>
+        <h1 className="heading">All you need to do is...</h1>
         <div className="row">
           <div className="col-md-8 steps-details">
             {steps.map((step, i) => {
@@ -51,6 +51,7 @@ export default class HowItWorks extends React.Component {
             })}
           </div>
         </div>
+        <hr className="d-block d-sm-block d-md-none line" />
         <Scroll
           {...this.props}
           scrollToElement={this.scrollToElement}

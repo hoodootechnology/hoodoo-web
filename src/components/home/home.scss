@@ -8,14 +8,15 @@
     background-size: contain;
     min-height: calc(100vh - 300px);
     margin-top: 30px;
-    @media only screen and (max-width: 767px) {
-      display: none;
-    }
+  }
+  .small-bg {
+    margin: 25px 0;
   }
   .home-text-wrapper {
     padding: 150px 80px;
     @media only screen and (max-width: 767px) {
       padding: 50px 40px;
+      text-align: center;
     }
     .home-text {
       font-size: 60px;
@@ -37,6 +38,11 @@
         z-index: -1;
         top: 80px;
         left: 20px;
+        @media only screen and (max-width: 767px) {
+          top: 0;
+          height: 150px;
+          width: 150px;
+        }
       }
       &::after {
         content: '';
@@ -46,7 +52,7 @@
         background-color: $light-blue;
         border-radius: 50%;
         z-index: -1;
-        right: 50px;
+        right: 60px;
         @media only screen and (max-width: 767px) {
           display: none;
           text-align: center;
@@ -54,6 +60,7 @@
       }
     }
     .call-us-button {
+      font-size: 20px;
       background-color: $red;
       padding: 10px 50px;
       border-radius: 30px;
@@ -84,4 +91,8 @@
       }
     }
   }
+}
+
+.modal-text {
+  color: $dark-blue;
 }

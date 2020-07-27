@@ -35,6 +35,9 @@
         color: $dark-blue;
         font-size: 24px;
         padding-left: 10px;
+        .text-black {
+          color: black;
+        }
       }
       .btn-primary {
         background-color: $dark-blue;
@@ -42,10 +45,20 @@
         border: none;
         padding: 10px 20px;
         border-radius: 30px;
+        border: 1px solid transparent;
         &:hover {
           color: $dark-blue;
           background-color: white;
           border: 1px solid $dark-blue;
+        }
+        &:active,
+        &:focus,
+        &:visited {
+          border: none;
+          box-shadow: none;
+          background-color: $dark-blue;
+          color: white;
+          outline: none;
         }
         @media only screen and (max-width: 767px) {
           padding: 10px;
@@ -211,5 +224,42 @@
         }
       }
     }
+  }
+}
+
+.callback-modal {
+  .btn-primary {
+    background-color: $dark-blue;
+    font-size: 14px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    &:hover {
+      color: $dark-blue;
+      background-color: white;
+      border: 1px solid $dark-blue;
+    }
+    &:active,
+    &:focus,
+    &:visited {
+      border: none;
+      box-shadow: none;
+      background-color: $dark-blue;
+      color: white;
+      outline: none;
+    }
+    @media only screen and (max-width: 767px) {
+      padding: 10px;
+      font-size: 12px;
+    }
+  }
+  .check-icon {
+    font-size: 80px;
+    color: $dark-blue;
+    margin-bottom: 30px;
+  }
+  .thank-you {
+    color: $dark-blue;
   }
 }

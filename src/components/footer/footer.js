@@ -1,5 +1,9 @@
 import React from "react"
 import "./footer.scss"
+import { Link } from "@reach/router"
+
+import { IconContext } from "react-icons"
+import { FaWhatsapp, FaPhoneAlt, FaEnvelope } from "react-icons/fa"
 
 export default class Footer extends React.Component {
   render() {
@@ -7,41 +11,52 @@ export default class Footer extends React.Component {
       Links: [
         {
           title: "Home",
-          link_url: "home",
+          link_url: "/",
         },
         {
           title: "About",
-          link_url: "home",
+          link_url: "/about",
         },
         {
           title: "How It Works",
-          link_url: "home",
+          link_url: "/",
         },
       ],
       Connect: [
         {
           title: "Facebook",
-          link_url: "",
+          link_url: "https://m.facebook.com/hoodootechnologies/",
         },
         {
           title: "Instagram",
-          link_url: "",
+          link_url: "https://www.instagram.com/hoodoo_cooks/?hl=en",
         },
         {
           title: "LinkedIn",
-          link_url: "",
+          link_url: "https://www.linkedin.com/company/hoodoo-technologies/",
         },
       ],
       Blog: [
         {
           title: "Medium",
-          link_url: "",
+          link_url:
+            "https://medium.com/@rupjit.chak/food-for-thought-499580d994a0?sk=9c2998fed75d458a7d464bf6e58c8144",
         },
       ],
       Contact: [
         {
           title: "hello@hoodoo.co.in",
-          link_url: "",
+          link_url: "hello@hoodoo.co.in",
+        },
+        {
+          title: "+91 8073508734",
+          link_url: "+91 8073508734",
+          type: "phone",
+        },
+        {
+          title: "+91 8073508734",
+          link_url: "+91 8073508734",
+          type: "whatsapp",
         },
       ],
     }
@@ -58,7 +73,64 @@ export default class Footer extends React.Component {
                     {content[item].map((links, i) => {
                       return (
                         <div key={i}>
-                          <p className="footer-links">{links.title}</p>
+                          {item === "Links" && (
+                            <Link to={links.link_url}>
+                              <p className="footer-links">{links.title}</p>
+                            </Link>
+                          )}
+                          {(item === "Connect" || item === "Blog") && (
+                            <p className="footer-links">
+                              <a
+                                rel="noopener noreferrer"
+                                href={links.link_url}
+                              >
+                                {links.title}
+                              </a>
+                            </p>
+                          )}
+                          {links.title === "hello@hoodoo.co.in" && (
+                            <p className="footer-links">
+                              <a
+                                rel="noopener noreferrer"
+                                href={`mailto:${links.link_url}`}
+                              >
+                                <IconContext.Provider
+                                  value={{
+                                    className: "bars-icon",
+                                  }}
+                                >
+                                  <FaEnvelope />
+                                </IconContext.Provider>
+                                <span> {links.title}</span>
+                              </a>
+                            </p>
+                          )}
+                          {links.title === "+91 8073508734" &&
+                            links.type === "phone" && (
+                              <p className="footer-links">
+                                <IconContext.Provider
+                                  value={{
+                                    className: "bars-icon",
+                                  }}
+                                >
+                                  <FaPhoneAlt />
+                                </IconContext.Provider>
+                                <span> {links.title}</span>
+                              </p>
+                            )}
+                          {links.title === "+91 8073508734" &&
+                            links.type === "whatsapp" && (
+                              <p className="footer-links">
+                                <IconContext.Provider
+                                  value={{
+                                    className: "bars-icon",
+                                  }}
+                                >
+                                  <FaWhatsapp />
+                                </IconContext.Provider>
+                                <span> {links.title}</span>
+                              </p>
+                            )}
                         </div>
                       )
                     })}
@@ -69,7 +141,7 @@ export default class Footer extends React.Component {
             <hr />
             <div>
               <p className="footer">
-                Copyright {new Date().getFullYear()} @ hoodoo.co.in
+                © {new Date().getFullYear()} hoodoo.co.in. All Rights Reserved.
               </p>
             </div>
           </div>

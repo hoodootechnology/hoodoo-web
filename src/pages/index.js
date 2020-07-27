@@ -26,6 +26,7 @@ export default class IndexPage extends React.Component {
       home: this.HomeRef,
     }
     this.scrollToElementFun = this.scrollToElementFun.bind(this)
+    this.updateClientData = this.updateClientData.bind(this)
   }
   toggleMenu = () => {
     this.setState({ is_menu_visible: !this.state.is_menu_visible })
@@ -40,6 +41,19 @@ export default class IndexPage extends React.Component {
     }
   }
 
+  updateClientData(data) {
+    let url =
+      "https://script.google.com/macros/s/AKfycbyjI82hmp8k3ocAOvsAVTLnI5DoZJiUB6M8b3Yd-opYC004ErIu/exec"
+
+    const form = new FormData()
+    form.set("name", data.name)
+    form.set("contact", data.contact)
+    form.set("date", new Date().toLocaleDateString())
+    fetch(url, { method: "POST", body: form })
+      .then(response => console.log("Success!", response))
+      .catch(error => console.error("Error!", error.message))
+  }
+
   render() {
     return (
       <div>
@@ -47,6 +61,7 @@ export default class IndexPage extends React.Component {
           scrollToElement={this.scrollToElementFun}
           toggleMenu={this.toggleMenu}
           is_menu_visible={this.state.is_menu_visible}
+          updateClientData={this.updateClientData}
         />
         <div>
           <SEO title="Home" />

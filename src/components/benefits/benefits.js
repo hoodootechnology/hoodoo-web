@@ -28,12 +28,15 @@ export default class Benefits extends React.Component {
     ]
     return (
       <div className="benefit-container" ref={this.props.setRef}>
-        {/* <h1 className="heading"> how it works </h1> */}
+        <h1 className="heading">Find a cook who is...</h1>
         <div className="row">
           <div className="col-md-8 benefit-details">
             {benefits.map((benefit, i) => {
               return (
-                <div className="col-md-4 details-wrapper" key={i}>
+                <div
+                  className="col-xs-12 col-sm-12 col-md-4 details-wrapper"
+                  key={i}
+                >
                   <Image
                     alt={benefit.benefit_title}
                     filename={benefit.benefit_image}
@@ -46,6 +49,7 @@ export default class Benefits extends React.Component {
             })}
           </div>
         </div>
+        <hr className="d-block d-sm-block d-md-none line" />
         <Scroll
           {...this.props}
           scrollToElement={this.scrollToElement}

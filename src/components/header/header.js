@@ -3,16 +3,28 @@ import React from "react"
 import "./header.scss"
 import Image from "../image"
 import { IconContext } from "react-icons"
-import { FaBars, FaTimes, FaCaretRight } from "react-icons/fa"
+import { FaBars, FaTimes, FaCaretRight, FaCheckCircle } from "react-icons/fa"
+import Modal from "react-bootstrap/Modal"
+import Form from "react-bootstrap/Form"
 
 export default class Header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       header_class: "white-bg",
+      callback_modal: false,
+      name: "",
+      contact: "",
+      validated: false,
+      is_form_valid: true,
     }
     this.handleMouseDown = this.handleMouseDown.bind(this)
     this.toggleMenu = this.toggleMenu.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+    this.handleShow = this.handleShow.bind(this)
+    this.handleNameChange = this.handleNameChange.bind(this)
+    this.handleContactChange = this.handleContactChange.bind(this)
+    this.submitForm = this.submitForm.bind(this)
   }
   scrollToElement(el) {
     this.props.scrollToElement(el)
@@ -41,6 +53,39 @@ export default class Header extends React.Component {
   componentWillUnmount() {
     window.removeEventListener("scroll", this.listenScrollEvent)
   }
+  handleClose() {
+    this.setState({
+      callback_modal: false,
+    })
+  }
+  handleShow() {
+    this.setState({
+      callback_modal: true,
+    })
+  }
+  handleNameChange(e) {
+    this.setState({ name: e.target.value })
+  }
+  handleContactChange(e) {
+    this.setState({ contact: e.target.value })
+  }
+  submitForm(event) {
+    const form = event.currentTarget
+    event.preventDefault()
+    event.stopPropagation()
+    this.setState({
+      validated: true,
+    })
+    if (form.checkValidity() === true) {
+      this.setState({
+        is_form_valid: false,
+      })
+      this.props.updateClientData({
+        name: this.state.name,
+        contact: this.state.contact,
+      })
+    }
+  }
   render() {
     return (
       <div className={`header-container ${this.state.header_class}`}>
@@ -59,12 +104,15 @@ export default class Header extends React.Component {
                   alt="Hoodoo"
                   filename="hoodoo-logo.png"
                 />
-                <span className="header-title"> hoodoo </span>
+                <span className="header-title">
+                  <span className="text-black">hoo</span>
+                  <span>doo </span>
+                </span>
               </span>
               <div className="float-right">
-                <Link to="/">
-                  <button className="btn-primary"> Request a Callback </button>
-                </Link>
+                <button className="btn-primary" onClick={this.handleShow}>
+                  Request a Callback
+                </button>
                 <span className="vertical-line"> </span>
                 <a
                   role="button"
@@ -94,11 +142,13 @@ export default class Header extends React.Component {
                   <div className="menu-list-wrapper">
                     <div className="clearfix">
                       <div className="col-md-6 float-right">
-                        <Link to="/">
-                          <button className="btn-primary">
-                            Request a Callback
-                          </button>
-                        </Link>
+                        <button
+                          onClick={this.handleShow}
+                          className="btn-primary"
+                        >
+                          Request a Callback
+                        </button>
+
                         <span className="vertical-line"> </span>
                         <a className="menu-container">
                           <IconContext.Provider
@@ -176,6 +226,69 @@ export default class Header extends React.Component {
             </h1>
           </div>
         </header>
+        <Modal
+          show={this.state.callback_modal}
+          onHide={this.handleClose}
+          className="callback-modal"
+        >
+          <Modal.Header closeButton className="text-center">
+            <Modal.Title>Request a callback</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {this.state.is_form_valid ? (
+              <Form
+                noValidate
+                validated={this.state.validated}
+                onSubmit={this.submitForm}
+              >
+                <Form.Group controlId="contactForm">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter your name"
+                    value={this.state.name}
+                    onChange={this.handleNameChange}
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please enter your name.
+                  </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group controlId="formContactNumber">
+                  <Form.Label>Contact Number</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="Enter your phone number"
+                    value={this.state.contact}
+                    onChange={this.handleContactChange}
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please enter your contact number
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <div className="text-center">
+                  <button type="submit" className="btn-primary mx-auto">
+                    Submit
+                  </button>
+                </div>
+              </Form>
+            ) : (
+              <div className="text-center">
+                <IconContext.Provider
+                  value={{
+                    className: "check-icon",
+                  }}
+                >
+                  <FaCheckCircle />
+                </IconContext.Provider>
+                <h3 className="thank-you">Thank You!</h3>
+                <p>We'll get in touch with you shortly.</p>
+              </div>
+            )}
+          </Modal.Body>
+        </Modal>
       </div>
     )
   }

@@ -7,6 +7,10 @@
   .footer-title {
     font-weight: bold;
     color: white;
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 5px;
+      margin-top: 20px;
+    }
   }
   .footer-links {
     margin-bottom: 10px;
@@ -19,5 +23,11 @@
     margin-top: calc(1.45rem - 1px);
     background: #ffffffa8;
     height: 2px;
+  }
+  a {
+    color: $dark-blue;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `hoodoo`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Do you need a cook and are worried about Covid19? We can help.`,
     author: `@hoodoo.co.in`,
   },
   plugins: [

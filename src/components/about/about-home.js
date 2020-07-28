@@ -17,21 +17,16 @@ export default class AboutUs extends React.Component {
           <h2 className="about-heading">About Us</h2>
           <h3 className="sub-heading">Who we are</h3>
           <p className="sub-desc">
-            Search Results Featured snippet from the web Image result for add
-            redirect to in react function import from "react-router-dom"; The
-            easiest way to use this method is by maintaining a redirect property
-            inside the state of the component. Whenever you want to redirect to
-            another path, you can simply change the state to re-render the
-            component, thus rendering the
+            Hoodoo is a cool hiring startup that will not disappoint you. We
+            currently operate in Bengaluru, India. We are registered
+            organisation whose aim is to provide you with reliable cooks.
           </p>
           <h3 className="sub-heading">What we do</h3>
           <p className="sub-desc">
-            Search Results Featured snippet from the web Image result for add
-            redirect to in react function import from "react-router-dom"; The
-            easiest way to use this method is by maintaining a redirect property
-            inside the state of the component. Whenever you want to redirect to
-            another path, you can simply change the state to re-render the
-            component, thus rendering the
+            Hoodoo hires or puts a customer in touch with a cook. We always
+            ensure that the cooks we put our customers in touch with are
+            trustworthy and safe. We make it a point to check that our cooks
+            obey proper hygiene and are regular.
           </p>
         </div>
         <Scroll

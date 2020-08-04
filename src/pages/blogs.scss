@@ -1,0 +1,23 @@
+@import "../components/variables";
+.blogs-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  .blog-wrapper {
+    padding: 20px;
+    .heading,
+    a {
+      color: $dark-blue;
+      margin-bottom: 10px;
+    }
+    .heading {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .desc {
+      margin-bottom: 10px;
+    }
+    .gatsby-image-wrapper {
+      width: 200px;
+    }
+  }
+}

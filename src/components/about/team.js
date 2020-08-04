@@ -16,33 +16,35 @@ export default class Team extends React.Component {
   render() {
     var members = [
       {
-        name: "Gaurav Tolani",
-        profile: "Web Developer",
-        profile_img: "hoodoo-logo.png",
+        name: "Rahul Beniwal",
+        profile: "IIT Bombay",
+        profile_img: "RahulBeniwal.jpeg",
         social_media: {
-          facebook: "fb.com",
-          linkedin: "linkedin.com",
-          twitter: "twitter.com",
+          linkedin: "https://www.linkedin.com/in/rahulbeniwal/",
+        },
+      },
+      {
+        name: "Kopal Awasthi",
+        profile: "XLRI Jamshedpur",
+        profile_img: "KopalAwasthi.jpeg",
+        social_media: {
+          linkedin: "https://www.linkedin.com/in/kopalawasthi/",
         },
       },
       {
         name: "Gaurav Tolani",
-        profile: "Web Developer",
-        profile_img: "hoodoo-logo.png",
+        profile: "IIIT Vadodara",
+        profile_img: "GauravTolani.jpeg",
         social_media: {
-          facebook: "fb.com",
-          linkedin: "linkedin.com",
-          twitter: "twitter.com",
+          linkedin: "https://www.linkedin.com/in/gaurav-tolani-445a6489/",
         },
       },
       {
-        name: "Gaurav Tolani",
-        profile: "Web Developer",
-        profile_img: "hoodoo-logo.png",
+        name: "Rupjit Chakraborty",
+        profile: "IIIT Bhubaneswar",
+        profile_img: "Rupjit.jpeg",
         social_media: {
-          facebook: "fb.com",
-          linkedin: "linkedin.com",
-          twitter: "twitter.com",
+          linkedin: "https://www.linkedin.com/in/rupjit-chakraborty-ba4605159/",
         },
       },
     ]
@@ -51,7 +53,7 @@ export default class Team extends React.Component {
         <div className="row team-wrapper">
           {members.map((member, i) => {
             return (
-              <div className="col-sm-4" key={i}>
+              <div className="col-sm-3" key={i}>
                 <div className="profile-image">
                   <Image
                     className="logo-image"
@@ -59,7 +61,7 @@ export default class Team extends React.Component {
                     filename={member.profile_img}
                   />
                 </div>
-                <div className="profile-desc">
+                <div className="profile-desc mb-4">
                   <h3>{member.name}</h3>
                   <p>{member.profile}</p>
                   <div className="social-media">

@@ -16,10 +16,11 @@ export default class DescPage extends React.Component {
         <div>
           <div className="desc-wrapper col-md-8">
             <h1>Customer Safety Is Our Priority</h1>
+            <p> Covid19 Safety Precautions </p>
             <p>
-              Safety first, everything else comes later.Our cooks are regularly
-              advised to maintain proper hygiene and stay clean.Customer Safety
-              is a motto that we live by and we guarantee you we will go the
+              Safety first, everything else comes later. All Our cooks wear mask
+              and gloves while working and are regularly advised to maintain
+              proper hygiene and stay clean. We guarantee you we will go the
               extra mile to ensure satisfaction.
             </p>
           </div>

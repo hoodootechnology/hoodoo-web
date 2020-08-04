@@ -178,9 +178,8 @@ export default class Header extends React.Component {
                           </IconContext.Provider>
                         </span>
                       </li>
-                      {/* TODO:// add blog link here */}
                       <li className="menu-items">
-                        <Link to="/about">
+                        <Link to="/blogs">
                           <span className="text"> Blog </span>
                           <span className="right-caret">
                             <IconContext.Provider
@@ -258,14 +257,15 @@ export default class Header extends React.Component {
                 <Form.Group controlId="formContactNumber">
                   <Form.Label>Contact Number</Form.Label>
                   <Form.Control
-                    type="number"
+                    type="text"
                     placeholder="Enter your phone number"
                     value={this.state.contact}
                     onChange={this.handleContactChange}
                     required
+                    pattern="[1-9]{1}[0-9]{9}"
                   />
                   <Form.Control.Feedback type="invalid">
-                    Please enter your contact number
+                    Please enter a valid contact number
                   </Form.Control.Feedback>
                 </Form.Group>
                 <div className="text-center">

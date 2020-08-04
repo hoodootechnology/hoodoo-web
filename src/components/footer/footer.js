@@ -38,9 +38,8 @@ export default class Footer extends React.Component {
       ],
       Blog: [
         {
-          title: "Medium",
-          link_url:
-            "https://medium.com/@rupjit.chak/food-for-thought-499580d994a0?sk=9c2998fed75d458a7d464bf6e58c8144",
+          title: "Our Blogs",
+          link_url: "www.hoodoo.co.in/blogs",
         },
       ],
       Contact: [

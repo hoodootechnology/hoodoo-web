@@ -6,13 +6,20 @@
   z-index: 1000;
   transform: translateZ(0);
   &.white-bg {
-    // background-color: white;
-    background-color: $black;
+    background-color: white; // background-color: $black;
     -webkit-transition: background-color 0.5s linear;
     -moz-transition: background-color 0.5s linear;
     -o-transition: background-color 0.5s linear;
     -ms-transition: background-color 0.5s linear;
     transition: background-color 0.5s linear;
+    .vertical-line {
+      border-left: 1px solid $black;
+    }
+    .menu-container {
+      .bars-icon {
+        color: $black;
+      }
+    }
   }
   &.blue-bg {
     // background-color: $light-blue;
@@ -22,11 +29,30 @@
     -o-transition: background-color 0.5s linear;
     -ms-transition: background-color 0.5s linear;
     transition: background-color 0.5s linear;
+    .header-title {
+      display: none;
+    }
+    .vertical-line {
+      border-left: 1px solid white;
+    }
+    .menu-container {
+      .bars-icon {
+        color: white;
+      }
+    }
   }
   .header-wrapper {
     padding: 10px 20px 0 20px;
     @media only screen and (max-width: 767px) {
       background-color: $black; // background-color: $light-blue;
+      .vertical-line {
+        border-left: 1px solid white;
+      }
+      .menu-container {
+        .bars-icon {
+          color: white;
+        }
+      }
     }
     .header {
       a {
@@ -36,9 +62,12 @@
       .header-title {
         font-size: 24px;
         padding-left: 30px;
-        color: $light-blue;
+        color: $dark-blue;
         .text-black {
-          color: $red;
+          color: $black;
+          @media only screen and (max-width: 767px) {
+            color: $red;
+          }
         }
         @media only screen and (max-width: 767px) {
           font-size: 20px;
@@ -84,7 +113,6 @@
       }
       .vertical-line {
         padding: 14px 1px 14px 1px;
-        border-left: 1px solid white;
         display: inline-block;
         margin: 0 20px;
         position: relative;
@@ -95,7 +123,6 @@
       }
       .menu-container {
         .bars-icon {
-          color: white;
           font-size: 20px;
           position: relative;
           top: 6px;
@@ -184,15 +211,17 @@
         .menu-list {
           font-family: "Vollkorn", sans-serif;
           list-style: none;
-          padding-top: 10vh;
+          padding-top: 20vh;
           .menu-items {
             margin-bottom: 50px;
-            color: $sky-blue;
+            color: $menu-text;
+            font-size: 45px;
+            font-weight: 400;
             cursor: pointer;
             padding-bottom: 2px;
             transition: transform .5s ease-in-out;
             a {
-              color: $sky-blue;
+              color: $menu-text;
             }
             @media only screen and (max-width: 767px) {
               margin-bottom: 20px;

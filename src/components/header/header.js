@@ -107,7 +107,7 @@ export default class Header extends React.Component {
                   <span>doo </span>
                 </span>
               </span>
-              <div className="float-right">
+              <div className="float-right" style={{ marginRight: 20 + "px" }}>
                 <button className="btn-primary" onClick={this.handleShow}>
                   Request a Callback
                 </button>
@@ -136,10 +136,10 @@ export default class Header extends React.Component {
                 onMouseDown={this.handleMouseDown}
                 className={this.props.is_menu_visible ? "show" : "hide"}
               >
-                <div className="menu-list-container col-md-8 offset-md-6">
+                <div className="menu-list-container col-md-7 offset-md-7">
                   <div className="menu-list-wrapper">
                     <div className="clearfix">
-                      <div className="col-md-6 float-right">
+                      <div className="col-md-7 float-right">
                         <button
                           onClick={this.handleShow}
                           className="btn-primary"

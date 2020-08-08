@@ -6,7 +6,7 @@ import Image from "../components/image"
 
 import Header from "../components/header/header"
 import Footer from "../components/footer/footer"
-import { Link } from "@reach/router"
+// import { Link } from "@reach/router"
 import "./blogs.scss"
 
 export default class Blogs extends React.Component {

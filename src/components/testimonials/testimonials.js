@@ -66,16 +66,19 @@ export default class Testimonials extends React.Component {
       })
       return content
     } else {
+      var count = 0
       for (let i = 0; i < this.testimonials.length; i = i + 3) {
         for (let x = 0; x < 3; x++) {
           if (x === 0) {
-            content[`page${i}`] = [this.testimonials[i]]
+            content[`page${count}`] = [this.testimonials[i + x]]
           } else {
-            content[`page${i}`].push(this.testimonials[i])
+            if (this.testimonials[i + x])
+              content[`page${count}`].push(this.testimonials[i + x])
           }
         }
-        return content
+        count++
       }
+      return content
     }
   }
   render() {

@@ -1,13 +1,13 @@
 @import "../variables.scss";
 .steps-container {
   font-family: "Muli", serif;
-  color: $dark-blue;
-  min-height: 100vh;
-  position: relative;
-  padding-top: 10%;
+  color: $dark-blue; // min-height: 100vh;
+  position: relative; // padding-top: 10%;
+  padding-top: 100px;
+  padding-bottom: 150px;
   .heading {
     text-align: center;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
   }
   p {
     margin-bottom: 0;

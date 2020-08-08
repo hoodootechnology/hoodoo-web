@@ -1,9 +1,9 @@
 @import "../variables.scss";
 .footer-container {
   padding: 70px;
-  font-family: "Muli", serif;
-  background-color: $light-blue;
-  color: $dark-blue;
+  font-family: "Muli", serif; // background-color: $light-blue;
+  background-color: $black;
+  color: $sky-blue;
   .footer-title {
     font-weight: bold;
     color: white;
@@ -25,7 +25,7 @@
     height: 2px;
   }
   a {
-    color: $dark-blue;
+    color: $sky-blue;
     &:hover {
       text-decoration: none;
     }

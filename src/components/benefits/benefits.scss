@@ -5,7 +5,11 @@
   color: $red;
   position: relative;
   padding-top: 100px;
-  padding-bottom: 150px; // background-color: $sky-blue;
+  padding-bottom: 150px;
+  background-color: $sky-blue;
+  @media only screen and (max-width: 767px) {
+    padding-bottom: 0;
+  }
   .heading {
     color: $dark-blue;
     text-align: center;

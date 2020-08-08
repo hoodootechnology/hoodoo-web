@@ -6,7 +6,8 @@
   z-index: 1000;
   transform: translateZ(0);
   &.white-bg {
-    background-color: white;
+    // background-color: white;
+    background-color: $black;
     -webkit-transition: background-color 0.5s linear;
     -moz-transition: background-color 0.5s linear;
     -o-transition: background-color 0.5s linear;
@@ -14,7 +15,8 @@
     transition: background-color 0.5s linear;
   }
   &.blue-bg {
-    background-color: $light-blue;
+    // background-color: $light-blue;
+    background-color: $black;
     -webkit-transition: background-color 0.5s linear;
     -moz-transition: background-color 0.5s linear;
     -o-transition: background-color 0.5s linear;
@@ -32,11 +34,11 @@
         text-decoration: none;
       }
       .header-title {
-        color: $dark-blue;
         font-size: 24px;
-        padding-left: 10px;
+        padding-left: 30px;
+        color: $light-blue;
         .text-black {
-          color: black;
+          color: $red;
         }
       }
       .btn-primary {
@@ -65,14 +67,17 @@
           font-size: 12px;
         }
       }
-      .gatsby-image-wrapper {
-        max-width: 15px;
+      .logo-image {
+        max-width: 20px;
         width: 50px;
         display: inline-block;
+        position: relative;
+        top: 15px;
+        left: 20px;
       }
       .vertical-line {
         padding: 14px 1px 14px 1px;
-        border-left: 1px solid $black;
+        border-left: 1px solid white;
         display: inline-block;
         margin: 0 20px;
         position: relative;
@@ -83,7 +88,7 @@
       }
       .menu-container {
         .bars-icon {
-          color: $black;
+          color: white;
           font-size: 20px;
           position: relative;
           top: 6px;
@@ -179,6 +184,9 @@
             cursor: pointer;
             padding-bottom: 2px;
             transition: transform .5s ease-in-out;
+            a {
+              color: $sky-blue;
+            }
             @media only screen and (max-width: 767px) {
               margin-bottom: 20px;
               font-size: 16px;

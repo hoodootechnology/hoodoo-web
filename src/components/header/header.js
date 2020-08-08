@@ -99,11 +99,9 @@ export default class Header extends React.Component {
                 onClick={() => this.scrollToElement("home")}
                 onKeyDown={() => this.scrollToElement("home")}
               >
-                <Image
-                  className="logo-image"
-                  alt="Hoodoo"
-                  filename="hoodoo-logo.png"
-                />
+                <span className="logo-image">
+                  <Image alt="Hoodoo" filename="hoodoo-logo.svg" />
+                </span>
                 <span className="header-title">
                   <span className="text-black">hoo</span>
                   <span>doo </span>

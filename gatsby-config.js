@@ -3,6 +3,7 @@ module.exports = {
     title: `hoodoo`,
     description: `Do you need a cook and are worried about Covid19? We can help.`,
     author: `@hoodoo.co.in`,
+    keywords: ['Cooks', 'Bangalore', 'Homemade', 'food', 'Hoodoo', 'Hygienic', 'Covid19', 'Agency', 'Startup']
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

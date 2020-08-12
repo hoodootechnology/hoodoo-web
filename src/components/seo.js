@@ -20,6 +20,10 @@ function SEO({ description, lang, meta, title }) {
             description
             author
             keywords
+            classification
+            audience
+            robots
+            googlebot
           }
         }
       }
@@ -43,6 +47,22 @@ function SEO({ description, lang, meta, title }) {
         {
           name: "keywords",
           content: site.siteMetadata.keywords.join(","),
+        },
+        {
+          name: "classification",
+          content: site.siteMetadata.classification.join(","),
+        },
+        {
+          name: "audience",
+          content: site.siteMetadata.audience,
+        },
+        {
+          name: "robots",
+          content: site.siteMetadata.robots,
+        },
+        {
+          name: "googlebot",
+          content: site.siteMetadata.googlebot,
         },
         {
           property: `og:title`,

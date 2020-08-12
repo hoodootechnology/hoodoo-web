@@ -3,7 +3,33 @@ module.exports = {
     title: `hoodoo`,
     description: `Do you need a cook and are worried about Covid19? We can help.`,
     author: `@hoodoo.co.in`,
-    keywords: ['Cooks', 'Bangalore', 'Homemade', 'food', 'Hoodoo', 'Hygienic', 'Covid19', 'Agency', 'Startup']
+    keywords: [
+      "Cooks",
+      "Bangalore",
+      "Homemade",
+      "food",
+      "Hoodoo",
+      "Hygienic",
+      "Covid19",
+      "Agency",
+      "Startup",
+      "Cooks in Bangalore",
+      "Cooks in banglore",
+      "hygienic cooks",
+      "best cooks",
+      "best cooks in bangalore",
+      "find cooks in bangalore",
+      "hire cooks",
+      "find cooks",
+      "hire",
+      "homemade food",
+      "cook agency",
+      "cooks startup",
+    ],
+    classification: ["Cooks", "Cook Provider", "Startup", "hygienic"],
+    audience: "all",
+    robots: "follow,index,noodp,noydir",
+    googlebot: "index, follow",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -33,8 +59,8 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "fonts",
-        path: `${__dirname}/src/fonts/`
-      }
+        path: `${__dirname}/src/fonts/`,
+      },
     },
     `gatsby-plugin-offline`,
     {

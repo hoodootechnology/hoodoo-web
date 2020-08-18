@@ -9,6 +9,7 @@ import Home from "../components/home/home"
 import Benefits from "../components/benefits/benefits"
 import HowItWorks from "../components/how-it-works/how-it-works"
 import Testimonials from "../components/testimonials/testimonials"
+import Chatbot from "../components/chatbot/chatbot"
 
 export default class IndexPage extends React.Component {
   constructor(props) {
@@ -86,6 +87,7 @@ export default class IndexPage extends React.Component {
             setRef={this.TestimonialsRef}
             scrollToElement={this.scrollToElementFun}
           />
+          <Chatbot />
           <Footer />
         </div>
       </div>

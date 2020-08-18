@@ -1,0 +1,22 @@
+.chatbot-container {
+  position: fixed;
+  bottom: 50px;
+  background: red;
+  right: 50px;
+  z-index: 2;
+  cursor: pointer;
+  .show_bot {
+    display: block;
+  }
+  .hide_bot {
+    display: none;
+  }
+  .chat-box-wrapper {
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    background-color: blue;
+    height: 400px;
+    width: 300px;
+  }
+}

@@ -54,7 +54,7 @@ export default class Testimonials extends React.Component {
       name: "Utkarsh Tiwari",
       date: "19th July",
       msg:
-        "I was skeptical at first, Hoodoo looked like an agency to me. Nevertheless we hired a cook from them.It has been two months now and I think it was a good decision. Hoodoo delivers on its promise of providing reliable cooks.",
+        "We hired a cook from them and it has been two months now and I think it was a good decision. Hoodoo delivers on its promise of providing reliable cooks.",
       rating: 5,
     },
   ]

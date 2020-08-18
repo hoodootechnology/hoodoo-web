@@ -2,9 +2,9 @@
 .about-container,
 .desc-container,
 .team-container {
-  min-height: calc(100vh - 60px);
   position: relative;
   font-family: "Muli", serif;
+  padding-bottom: 100px;
   .about-wrapper,
   .desc-wrapper,
   .team-wrapper {
@@ -16,6 +16,12 @@
 }
 
 .about-container {
+  .about-wrapper {
+    padding: 30px 200px;
+    @media only screen and (max-width: 767px) {
+      padding: 30px;
+    }
+  }
   .sub-heading {
     color: $red;
   }
@@ -39,6 +45,10 @@
       height: 300px;
       width: 300px;
       background-color: $light-blue;
+      background-image: url('../../images/hoodoo-logo.svg');
+      background-size: 50px 70px;
+      background-repeat: no-repeat;
+      background-position: center center;
       border-radius: 50%;
       z-index: -1;
       top: -100px;

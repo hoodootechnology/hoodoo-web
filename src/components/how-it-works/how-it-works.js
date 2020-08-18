@@ -35,7 +35,9 @@ export default class HowItWorks extends React.Component {
       },
     ]
     return (
-      <div className="steps-container" ref={this.props.setRef}>
+      <div className="steps-container"
+        ref={this.props.setRef}
+        id="howItWorks">
         <h1 className="heading">All you need to do is...</h1>
         <div className="row">
           <div className="col-md-8 steps-details">

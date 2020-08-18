@@ -6,6 +6,7 @@ import { IconContext } from "react-icons"
 import { FaBars, FaTimes, FaCaretRight, FaCheckCircle } from "react-icons/fa"
 import Modal from "react-bootstrap/Modal"
 import Form from "react-bootstrap/Form"
+import CallUsModal from "../call-us/call-us"
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -28,6 +29,10 @@ export default class Header extends React.Component {
   }
   scrollToElement(el) {
     this.props.scrollToElement(el)
+    if (this.props.is_menu_visible) {
+      this.toggleMenu()
+    }
+
   }
   listenScrollEvent = e => {
     if (window.scrollY > 400) {
@@ -62,6 +67,17 @@ export default class Header extends React.Component {
     this.setState({
       callback_modal: true,
     })
+  }
+  callUsModalRef = ref => {
+    if (ref) {
+      this.showModal = ref.handleContactShow
+    }
+  }
+
+  handleContactShow = () => {
+    if (this.showModal) {
+      this.showModal()
+    }
   }
   handleNameChange(e) {
     this.setState({ name: e.target.value })
@@ -133,8 +149,9 @@ export default class Header extends React.Component {
                 role="button"
                 tabIndex={0}
                 aria-label="callback-button"
-                onMouseDown={this.handleMouseDown}
-                className={this.props.is_menu_visible ? "show" : "hide"}
+                className={
+                  this.props.is_menu_visible ? "visible-menu" : "hidden-menu"
+                }
               >
                 <div className="menu-list-container col-md-7 offset-md-7">
                   <div className="menu-list-wrapper">
@@ -148,7 +165,11 @@ export default class Header extends React.Component {
                         </button>
 
                         <span className="vertical-line"> </span>
-                        <a className="menu-container">
+                        <a
+                          className="menu-container"
+                          onMouseDown={this.handleMouseDown}
+                          onClick={this.handleMouseDown}
+                        >
                           <IconContext.Provider
                             value={{
                               className: "cross-icon",
@@ -204,7 +225,10 @@ export default class Header extends React.Component {
                           </span>
                         </Link>
                       </li>
-                      <li className="menu-items">
+                      <li
+                        className="menu-items"
+                        onClick={this.handleContactShow}
+                      >
                         <span className="text"> Contact Us </span>
                         <span className="right-caret">
                           <IconContext.Provider
@@ -232,6 +256,9 @@ export default class Header extends React.Component {
             <Modal.Title>Request a callback</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            <p className="operational-text text-center">
+              We are operational in Bangalore!
+            </p>
             {this.state.is_form_valid ? (
               <Form
                 noValidate
@@ -273,20 +300,21 @@ export default class Header extends React.Component {
                 </div>
               </Form>
             ) : (
-              <div className="text-center">
-                <IconContext.Provider
-                  value={{
-                    className: "check-icon",
-                  }}
-                >
-                  <FaCheckCircle />
-                </IconContext.Provider>
-                <h3 className="thank-you">Thank You!</h3>
-                <p>We'll get in touch with you shortly.</p>
-              </div>
-            )}
+                <div className="text-center">
+                  <IconContext.Provider
+                    value={{
+                      className: "check-icon",
+                    }}
+                  >
+                    <FaCheckCircle />
+                  </IconContext.Provider>
+                  <h3 className="thank-you">Thank You!</h3>
+                  <p>We'll get in touch with you shortly.</p>
+                </div>
+              )}
           </Modal.Body>
         </Modal>
+        <CallUsModal ref={this.callUsModalRef}></CallUsModal>
       </div>
     )
   }

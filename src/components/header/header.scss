@@ -245,7 +245,7 @@
           }
         }
       }
-      .hide {
+      .hidden-menu {
         .menu-list-container {
           transform: translate3d(50vw, 0, 0);
           overflow: hidden;
@@ -254,7 +254,7 @@
           }
         }
       }
-      .show {
+      .visible-menu {
         .menu-list-container {
           transform: translate3d(0vw, 0, 0);
           -webkit-transform: skew(-10deg);
@@ -305,5 +305,8 @@
   }
   .thank-you {
     color: $dark-blue;
+  }
+  .operational-text {
+    color: $red;
   }
 }

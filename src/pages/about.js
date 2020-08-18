@@ -43,7 +43,7 @@ export default class AboutPage extends React.Component {
         block: "start",
       })
     } else {
-      window.location.href = "/"
+      window.location.href = "/#" + ref
     }
   }
   render() {

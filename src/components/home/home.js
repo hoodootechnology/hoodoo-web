@@ -2,30 +2,27 @@ import React from "react"
 import "./home.scss"
 import Image from "../image"
 import Scroll from "../scroll/scroll"
-import Modal from "react-bootstrap/Modal"
+import CallUsModal from "../call-us/call-us"
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      modal: false,
-    }
     this.scrollToElement = this.scrollToElement.bind(this)
-    this.handleClose = this.handleClose.bind(this)
-    this.handleShow = this.handleShow.bind(this)
   }
   scrollToElement(el) {
     this.props.scrollToElement(el)
   }
-  handleClose() {
-    this.setState({
-      modal: false,
-    })
+
+  callUsModalRef = ref => {
+    if (ref) {
+      this.showModal = ref.handleContactShow
+    }
   }
-  handleShow() {
-    this.setState({
-      modal: true,
-    })
+
+  handleContactShow = () => {
+    if (this.showModal) {
+      this.showModal()
+    }
   }
   render() {
     return (
@@ -45,7 +42,7 @@ export default class Home extends React.Component {
             <h1 className="home-text">
               Do you need a cook and are worried about Covid19? We can help.
             </h1>
-            <p className="call-us-button" onClick={this.handleShow}>
+            <p className="call-us-button" onClick={this.handleContactShow}>
               Call Us
             </p>
             <span className="vertical-line d-none"></span>
@@ -60,22 +57,7 @@ export default class Home extends React.Component {
           scrollToElement={this.scrollToElement}
           element="benefits"
         />
-        <Modal show={this.state.modal} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Call Us</Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="text-center modal-text">
-            <h3>
-              <br />
-              Please call us for any queries on
-              <br />
-              <br />
-              +91 8073508734
-            </h3>
-            <br />
-            <p>We will be happy to hear from you.</p>
-          </Modal.Body>
-        </Modal>
+        <CallUsModal ref={this.callUsModalRef}></CallUsModal>
       </div>
     )
   }

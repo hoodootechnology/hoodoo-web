@@ -3,6 +3,7 @@ import "./testimonial.scss"
 import Carousel from "react-bootstrap/Carousel"
 import { FaStar, FaStarHalfAlt } from "react-icons/fa"
 import { IconContext } from "react-icons"
+import CallUsModal from "../call-us/call-us"
 
 export default class Testimonials extends React.Component {
   constructor(props) {
@@ -34,28 +35,42 @@ export default class Testimonials extends React.Component {
       }
     )
   }
+  callUsModalRef = ref => {
+    if (ref) {
+      this.showModal = ref.handleContactShow
+    }
+  }
+
+  handleContactShow = () => {
+    if (this.showModal) {
+      this.showModal()
+    }
+  }
 
   testimonials = [
     {
       name: "Rupjit Chakraborty",
-      date: "19th July",
+      date: "10th July",
       msg:
-        "I was skeptical before hiring them due to covid, but their focus on cook’s hygiene and sanitization in trial got me to subscribe for the monthly plan. Its going great guys..keep it up!",
+        "I was skeptical before hiring them due to covid, but their focus on cook’s <b>hygiene and sanitization</b> in trial got me to subscribe for the monthly plan. Its going great guys.. keep it up!",
       rating: 5,
+      place: "Marathahalli, Bangalore",
     },
     {
       name: "Shalinee Singh",
-      date: "19th July",
+      date: "4th August",
       msg:
-        "Couldn’t ask for more. I get home cooked food even in the pandemic. Wish you could deliver groceries too with the cook.",
+        "Couldn’t ask for more. I get <b>home cooked food</b> even in the pandemic. Wish you could deliver groceries too with the cook.",
       rating: 4,
+      place: "HSR Layout, Bangalore",
     },
     {
       name: "Utkarsh Tiwari",
       date: "19th July",
       msg:
-        "I was skeptical at first, Hoodoo looked like an agency to me. Nevertheless we hired a cook from them.It has been two months now and I think it was a good decision. Hoodoo delivers on its promise of providing reliable cooks.",
+        "We hired a cook from them. It has been two months now and I think it was a good decision. Hoodoo delivers on its promise of providing <b>reliable cooks.</b>",
       rating: 5,
+      place: "Electronic City, Bangalore",
     },
   ]
   applicable_content = () => {
@@ -93,10 +108,16 @@ export default class Testimonials extends React.Component {
                   return (
                     <div key={test_i} className="testimonial">
                       <p className="user-name"> {testimonial.name} </p>
-                      <p className="date"> {testimonial.date} </p>
+                      <p className="date my-0 pb-0"> {testimonial.date} </p>
+                      <p className="date pt-0"> {testimonial.place} </p>
                       <hr className="hr" />
                       <div className="message-wrapper">
-                        <p className="message"> {testimonial.msg} </p>
+                        <p
+                          className="message"
+                          dangerouslySetInnerHTML={{
+                            __html: testimonial.msg
+                          }}
+                        ></p>
                         <div className="ratings">
                           {[...Array(testimonial.rating)].map(
                             (rating, index) => {
@@ -135,6 +156,13 @@ export default class Testimonials extends React.Component {
             )
           })}
         </Carousel>
+        <div className="text-center py-4">
+          <span className="call-us-button mb-0"
+            onClick={this.handleContactShow}>
+            Call Us
+          </span>
+        </div>
+        <CallUsModal ref={this.callUsModalRef}></CallUsModal>
       </div>
     )
   }

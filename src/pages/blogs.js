@@ -40,7 +40,7 @@ export default class Blogs extends React.Component {
         block: "start",
       })
     } else {
-      window.location.href = "/"
+      window.location.href = "/#" + ref;
     }
   }
   render() {
@@ -81,6 +81,7 @@ export default class Blogs extends React.Component {
           is_menu_visible={this.state.is_menu_visible}
         />
         <div className="blogs-container">
+          <h1 className="heading">Read about us...</h1>
           {blog_list.map((blog, i) => {
             return (
               <div key={i} className="row blog-wrapper">

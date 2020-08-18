@@ -2,6 +2,11 @@
 .blogs-container {
   padding-top: 50px;
   padding-bottom: 50px;
+  .heading {
+    color: $dark-blue;
+    text-align: center;
+    padding-bottom: 30px;
+  }
   .blog-wrapper {
     padding: 20px;
     .heading,

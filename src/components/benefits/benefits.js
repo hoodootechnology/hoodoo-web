@@ -18,7 +18,7 @@ export default class Benefits extends React.Component {
         benefit_image: "professional.svg",
       },
       {
-        benefit_title: "Hygenic",
+        benefit_title: "Hygienic",
         benefit_image: "hygenic.svg",
       },
       {

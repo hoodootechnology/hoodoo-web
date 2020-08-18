@@ -19,7 +19,7 @@ export default class Footer extends React.Component {
         },
         {
           title: "How It Works",
-          link_url: "/",
+          link_url: "/#howItWorks",
         },
       ],
       Connect: [
@@ -39,7 +39,7 @@ export default class Footer extends React.Component {
       Blog: [
         {
           title: "Our Blogs",
-          link_url: "www.hoodoo.co.in/blogs",
+          link_url: "/blogs",
         },
       ],
       Contact: [
@@ -72,16 +72,17 @@ export default class Footer extends React.Component {
                     {content[item].map((links, i) => {
                       return (
                         <div key={i}>
-                          {item === "Links" && (
+                          {(item === "Links" || item === "Blog") && (
                             <Link to={links.link_url}>
                               <p className="footer-links">{links.title}</p>
                             </Link>
                           )}
-                          {(item === "Connect" || item === "Blog") && (
+                          {item === "Connect" && (
                             <p className="footer-links">
                               <a
                                 rel="noopener noreferrer"
                                 href={links.link_url}
+                                target="_self"
                               >
                                 {links.title}
                               </a>

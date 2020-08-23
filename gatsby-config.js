@@ -3,6 +3,7 @@ module.exports = {
     title: `hoodoo`,
     description: `Do you need a cook and are worried about Covid19? We can help.`,
     author: `@hoodoo.co.in`,
+    siteUrl: 'https://www.hoodoo.co.in',
     keywords: [
       "Cooks",
       "Bangalore",

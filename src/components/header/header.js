@@ -146,7 +146,7 @@ export default class Header extends React.Component {
                 </a>
               </div>
               <div
-                role="button"
+                role="layout"
                 tabIndex={0}
                 aria-label="callback-button"
                 className={

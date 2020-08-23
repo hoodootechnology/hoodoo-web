@@ -64,7 +64,7 @@ export default class IndexPage extends React.Component {
           updateClientData={this.updateClientData}
         />
         <div>
-          <SEO title="Home" />
+          <SEO title="Welcome to Hoodoo" />
           <Home
             {...this.props}
             setRef={this.HomeRef}

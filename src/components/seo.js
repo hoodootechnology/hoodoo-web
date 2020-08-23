@@ -107,6 +107,14 @@ function SEO({ description, lang, meta, title }) {
           property: `image`,
           content: ogImageUrl,
         },
+        {
+          property: `og:image:secure_url`,
+          content: ogImageUrl,
+        },
+        {
+          property: `og:image:secure`,
+          content: ogImageUrl,
+        },
       ].concat(meta)}
     />
   )

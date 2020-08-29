@@ -63,6 +63,8 @@
         font-size: 24px;
         padding-left: 30px;
         color: $dark-blue;
+        top: 1px;
+        position: relative;
         .text-black {
           color: $black;
           @media only screen and (max-width: 767px) {

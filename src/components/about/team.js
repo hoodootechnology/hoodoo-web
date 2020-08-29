@@ -15,14 +15,14 @@ export default class Team extends React.Component {
 
   render() {
     var members = [
-      {
-        name: "Rahul Beniwal",
-        profile: "IIT Bombay",
-        profile_img: "RahulBeniwal.jpeg",
-        social_media: {
-          linkedin: "https://www.linkedin.com/in/rahulbeniwal/",
-        },
-      },
+      // {
+      //   name: "Rahul Beniwal",
+      //   profile: "IIT Bombay",
+      //   profile_img: "RahulBeniwal.jpeg",
+      //   social_media: {
+      //     linkedin: "https://www.linkedin.com/in/rahulbeniwal/",
+      //   },
+      // },
       {
         name: "Kopal Awasthi",
         profile: "XLRI Jamshedpur",
@@ -53,7 +53,7 @@ export default class Team extends React.Component {
         <div className="row team-wrapper">
           {members.map((member, i) => {
             return (
-              <div className="col-sm-3" key={i}>
+              <div className="col-sm-4" key={i}>
                 <div className="profile-image">
                   <Image
                     className="logo-image"

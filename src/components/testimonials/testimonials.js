@@ -49,7 +49,7 @@ export default class Testimonials extends React.Component {
 
   testimonials = [
     {
-      name: "Rupjit Chakraborty",
+      name: "Rashmi Kumar",
       date: "10th July",
       msg:
         "I was skeptical before hiring them due to covid, but their focus on cook’s <b>hygiene and sanitization</b> in trial got me to subscribe for the monthly plan. Its going great guys.. keep it up!",
@@ -157,6 +157,7 @@ export default class Testimonials extends React.Component {
           })}
         </Carousel>
         <div className="text-center py-4">
+          <h1 className="heading">Get your free trial today!</h1>
           <span className="call-us-button mb-0"
             onClick={this.handleContactShow}>
             Call Us

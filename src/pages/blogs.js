@@ -74,7 +74,7 @@ export default class Blogs extends React.Component {
     ]
     return (
       <div>
-        <SEO title="Blogs | hoodoo" />
+        <SEO title="Blogs | Read the blogs related to Hoodoo to know more about us" description="Know more about Hoodoo, follow us on social media and read our blogs to get familiar with the way we maintain taste and health." />
         <Header
           scrollToElement={this.scrollToElementFun}
           toggleMenu={this.toggleMenu}

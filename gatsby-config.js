@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `hoodoo`,
-    description: `Do you need a cook and are worried about Covid19? We can help.`,
+    description: `Do you need a cook in Bangalore and are worried about Covid19? We can help. Get your free trial today!`,
     author: `@hoodoo.co.in`,
     siteUrl: 'https://www.hoodoo.co.in',
     keywords: [
@@ -35,6 +35,24 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.hoodoo.co.in',
+        sitemap: 'https://www.hoodoo.co.in/sitemap.xml',
+        policy: [{
+          userAgent: '*',
+          allow: '/'
+        }]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.hoodoo.co.in`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

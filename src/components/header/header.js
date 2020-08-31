@@ -107,7 +107,7 @@ export default class Header extends React.Component {
       <div className={`header-container ${this.state.header_class}`}>
         <header>
           <div className="header-wrapper clearfix">
-            <h1 className="header">
+            <div className="header heading-1">
               <span
                 role="button"
                 tabIndex={0}
@@ -244,7 +244,7 @@ export default class Header extends React.Component {
                   </div>
                 </div>
               </div>
-            </h1>
+            </div>
           </div>
         </header>
         <Modal

@@ -28,7 +28,7 @@ export default class Benefits extends React.Component {
     ]
     return (
       <div className="benefit-container" ref={this.props.setRef}>
-        <h1 className="heading">Find a cook who is...</h1>
+        <p className="heading heading-1">Find a cook who is...</p>
         <div className="row">
           <div className="col-md-8 benefit-details">
             {benefits.map((benefit, i) => {

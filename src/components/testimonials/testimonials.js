@@ -99,7 +99,7 @@ export default class Testimonials extends React.Component {
   render() {
     return (
       <div className="testimonial-container" ref={this.props.setRef}>
-        <h1 className="heading">Reviews about us</h1>
+        <p className="heading heading-1">Reviews about us</p>
         <Carousel>
           {Object.keys(this.state.display_content).map((page, i) => {
             return (
@@ -157,7 +157,7 @@ export default class Testimonials extends React.Component {
           })}
         </Carousel>
         <div className="text-center py-4">
-          <h1 className="heading">Get your free trial today!</h1>
+          <p className="heading heading-1">Get your free trial today!</p>
           <span className="call-us-button mb-0"
             onClick={this.handleContactShow}>
             Call Us

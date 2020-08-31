@@ -39,9 +39,9 @@ export default class Home extends React.Component {
             <Image alt="'homepage'" filename="homepage.png" />
           </div>
           <div className="col-md-6 home-text-wrapper">
-            <h1 className="home-text">
+            <p className="home-text heading-1">
               Do you need a cook and are worried about Covid19? We can help.
-            </h1>
+            </p>
             <p className="call-us-button" onClick={this.handleContactShow}>
               Call Us
             </p>

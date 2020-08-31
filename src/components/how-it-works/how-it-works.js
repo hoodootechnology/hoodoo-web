@@ -38,7 +38,7 @@ export default class HowItWorks extends React.Component {
       <div className="steps-container"
         ref={this.props.setRef}
         id="howItWorks">
-        <h1 className="heading">All you need to do is...</h1>
+        <p className="heading heading-1">All you need to do is...</p>
         <div className="row">
           <div className="col-md-8 steps-details">
             {steps.map((step, i) => {

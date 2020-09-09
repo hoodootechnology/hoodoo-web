@@ -2,11 +2,13 @@ module.exports = {
   siteMetadata: {
     title: `hoodoo`,
     description: `Do you need a cook in Bangalore and are worried about Covid19? We can help. Get your free trial today!`,
-    author: `@hoodoo.co.in`,
+    author: `@hoodoocooks`,
     siteUrl: 'https://www.hoodoo.co.in',
     keywords: [
       "Cooks",
       "Bangalore",
+      "Banglore",
+      "Bengaluru",
       "Homemade",
       "food",
       "Hoodoo",
@@ -36,6 +38,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     'gatsby-plugin-sitemap',
+    `gatsby-plugin-scroll-reveal`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

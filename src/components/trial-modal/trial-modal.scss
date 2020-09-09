@@ -1,0 +1,72 @@
+@import "../variables.scss";
+.trial-modal {
+  .modal-dialog {
+    min-width: 700px;
+    min-height: 400px;
+    .trial-data-col {
+      background-color: $dark-blue;
+      .trial-data {
+        padding-top: 40px;
+        .text-white {
+          color: white;
+        }
+        .text-red {
+          color: $red;
+        }
+        .heading-1 {
+          font-weight: 400;
+          &.free {
+            font-weight: bold;
+          }
+        }
+        .text-xl {
+          font-size: 100px;
+          position: relative;
+          &::before {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 50%;
+            right: 0;
+            border-top: 8px solid #e8505bd9;
+            -webkit-transform: rotate(-15deg);
+            -moz-transform: rotate(-15deg);
+            -ms-transform: rotate(-15deg);
+            -o-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+          }
+        }
+        .btn-primary {
+          background-color: transparent;
+          font-size: 14px;
+          border: none;
+          padding: 15px 50px;
+          border-radius: 30px;
+          border: 1px solid white;
+          color: white;
+          &:hover {
+            color: $dark-blue;
+            background-color: white;
+            border: 1px solid $dark-blue;
+          }
+          &:active,
+          &:focus,
+          &:visited {
+            border: none;
+            box-shadow: none;
+            background-color: white;
+            color: $dark-blue;
+            outline: none;
+          }
+          @media only screen and (max-width: 767px) {
+            padding: 10px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .image-col {
+      padding: 15px;
+    }
+  }
+}

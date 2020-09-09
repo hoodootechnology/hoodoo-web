@@ -36,6 +36,9 @@ export default class Benefits extends React.Component {
                 <div
                   className="col-xs-12 col-sm-12 col-md-4 details-wrapper"
                   key={i}
+                  data-sal="zoom-in"
+                  data-sal-duration="500"
+                  data-sal-easing="ease-out"
                 >
                   <Image
                     alt={benefit.benefit_title}

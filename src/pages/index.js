@@ -9,6 +9,8 @@ import Home from "../components/home/home"
 import Benefits from "../components/benefits/benefits"
 import HowItWorks from "../components/how-it-works/how-it-works"
 import Testimonials from "../components/testimonials/testimonials"
+import LastCallUs from "../components/last-call-us/last-call-us"
+import TrialModal from "../components/trial-modal/trial-modal"
 
 export default class IndexPage extends React.Component {
   constructor(props) {
@@ -18,7 +20,7 @@ export default class IndexPage extends React.Component {
     this.HowItWorksRef = React.createRef()
     this.TestimonialsRef = React.createRef()
     this.HomeRef = React.createRef()
-
+    this.timer = null;
     this.allRefs = {
       benefits: this.BenefitsRef,
       howItWorks: this.HowItWorksRef,
@@ -28,6 +30,13 @@ export default class IndexPage extends React.Component {
     this.scrollToElementFun = this.scrollToElementFun.bind(this)
     this.updateClientData = this.updateClientData.bind(this)
   }
+
+  // componentDidMount() {
+  //   this.timer = setTimeout(() => this.handleTrialShow(), 0)
+  // }
+  // componentWillUnmount() {
+  //   clearTimeout(this.timer);
+  // }
   toggleMenu = () => {
     this.setState({ is_menu_visible: !this.state.is_menu_visible })
   }
@@ -53,6 +62,17 @@ export default class IndexPage extends React.Component {
       .then(response => console.log("Success!", response))
       .catch(error => console.error("Error!", error.message))
   }
+  trialModalRef = ref => {
+    if (ref) {
+      this.showTrialModal = ref.handleTrialShow
+    }
+  }
+
+  handleTrialShow = () => {
+    if (this.showTrialModal) {
+      this.showTrialModal()
+    }
+  }
 
   render() {
     return (
@@ -65,6 +85,7 @@ export default class IndexPage extends React.Component {
         />
         <div>
           <SEO title="Welcome to Hoodoo - Get cooks in Bangalore" />
+          <TrialModal ref={this.trialModalRef} />
           <Home
             {...this.props}
             setRef={this.HomeRef}
@@ -86,6 +107,7 @@ export default class IndexPage extends React.Component {
             setRef={this.TestimonialsRef}
             scrollToElement={this.scrollToElementFun}
           />
+          <LastCallUs />
           <Footer />
         </div>
       </div>

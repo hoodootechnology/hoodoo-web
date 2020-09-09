@@ -42,7 +42,9 @@ export default class Home extends React.Component {
             <h1 className="home-text">
               Do you need a cook and are worried about Covid19? We can help.
             </h1>
-            <p className="call-us-button" onClick={this.handleContactShow}>
+            <p className="call-us-button" onClick={this.handleContactShow} data-sal="zoom-in"
+              data-sal-duration="500"
+              data-sal-easing="ease-out">
               Call Us
             </p>
             <span className="vertical-line d-none"></span>

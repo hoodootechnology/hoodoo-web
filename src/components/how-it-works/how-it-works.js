@@ -43,7 +43,9 @@ export default class HowItWorks extends React.Component {
           <div className="col-md-8 steps-details">
             {steps.map((step, i) => {
               return (
-                <div className="col-md-4 details-wrapper" key={i}>
+                <div className="col-md-4 details-wrapper" key={i} data-sal="slide-up"
+                  data-sal-duration="500"
+                  data-sal-easing="ease-out">
                   <Image alt={step.step_title} filename={step.step_img} />
                   <h4 className="step">{step.step}</h4>
                   <h3 className="step-title">{step.step_title}</h3>

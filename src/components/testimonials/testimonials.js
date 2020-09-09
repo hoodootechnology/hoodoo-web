@@ -3,7 +3,6 @@ import "./testimonial.scss"
 import Carousel from "react-bootstrap/Carousel"
 import { FaStar, FaStarHalfAlt } from "react-icons/fa"
 import { IconContext } from "react-icons"
-import CallUsModal from "../call-us/call-us"
 
 export default class Testimonials extends React.Component {
   constructor(props) {
@@ -34,17 +33,6 @@ export default class Testimonials extends React.Component {
         })
       }
     )
-  }
-  callUsModalRef = ref => {
-    if (ref) {
-      this.showModal = ref.handleContactShow
-    }
-  }
-
-  handleContactShow = () => {
-    if (this.showModal) {
-      this.showModal()
-    }
   }
 
   testimonials = [
@@ -156,14 +144,6 @@ export default class Testimonials extends React.Component {
             )
           })}
         </Carousel>
-        <div className="text-center py-4">
-          <p className="heading heading-1">Get your free trial today!</p>
-          <span className="call-us-button mb-0"
-            onClick={this.handleContactShow}>
-            Call Us
-          </span>
-        </div>
-        <CallUsModal ref={this.callUsModalRef}></CallUsModal>
       </div>
     )
   }

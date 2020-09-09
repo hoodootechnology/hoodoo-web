@@ -31,11 +31,6 @@ export default class AboutUs extends React.Component {
             a point to check that our cooks obey proper hygiene and are regular.
           </p>
         </div>
-        <Scroll
-          {...this.props}
-          scrollToElement={this.scrollToElement}
-          element="desc"
-        />
       </div>
     )
   }

@@ -17,7 +17,7 @@
 
 .about-container {
   .about-wrapper {
-    padding: 30px 200px;
+    padding: 30px 200px 0 200px;
     @media only screen and (max-width: 767px) {
       padding: 30px;
     }
@@ -34,7 +34,7 @@
 }
 
 .desc-container {
-  padding-top: 15%;
+  padding-top: 5%;
   .desc-wrapper {
     color: $dark-blue;
     float: none;

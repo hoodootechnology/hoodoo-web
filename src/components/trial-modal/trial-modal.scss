@@ -67,6 +67,48 @@
     }
     .image-col {
       padding: 15px;
+      .close-icon {
+        cursor: pointer;
+      }
+    }
+    .confirm-button {
+      background-color: $dark-blue;
+      font-size: 14px;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: 1px solid transparent;
+      color: white;
+      &:hover {
+        color: $dark-blue;
+        background-color: white;
+        border: 1px solid $dark-blue;
+      }
+      &:active,
+      &:focus,
+      &:visited {
+        border: none;
+        box-shadow: none;
+        background-color: $dark-blue;
+        color: white;
+        outline: none;
+      }
+      @media only screen and (max-width: 767px) {
+        padding: 10px;
+        font-size: 12px;
+      }
+    }
+    .check-icon {
+      margin-top: 20%;
+      font-size: 80px;
+      color: $dark-blue;
+      margin-bottom: 30px;
+    }
+    .thank-you {
+      color: $dark-blue;
+    }
+    .operational-text {
+      color: $red;
     }
   }
 }

@@ -62,6 +62,19 @@ export default class IndexPage extends React.Component {
       .then(response => console.log("Success!", response))
       .catch(error => console.error("Error!", error.message))
   }
+  updateBookingData(data) {
+    let url =
+      "https://script.google.com/macros/s/AKfycbyjI82hmp8k3ocAOvsAVTLnI5DoZJiUB6M8b3Yd-opYC004ErIu/exec"
+
+    const form = new FormData()
+    form.set("name", data.name)
+    form.set("contact", data.contact)
+    form.set("date", new Date().toLocaleDateString())
+    form.set("type", 'BOOKING')
+    fetch(url, { method: "POST", body: form })
+      .then(response => console.log("Success!", response))
+      .catch(error => console.error("Error!", error.message))
+  }
   trialModalRef = ref => {
     if (ref) {
       this.showTrialModal = ref.handleTrialShow
@@ -85,7 +98,9 @@ export default class IndexPage extends React.Component {
         />
         <div>
           <SEO title="Welcome to Hoodoo - Get cooks in Bangalore" />
-          <TrialModal ref={this.trialModalRef} />
+          <TrialModal ref={this.trialModalRef}
+            updateBookingData={this.updateBookingData}
+          />
           <Home
             {...this.props}
             setRef={this.HomeRef}

@@ -119,8 +119,8 @@ export default class Header extends React.Component {
                   <Image alt="Hoodoo" filename="hoodoo-logo.svg" />
                 </span>
                 <span className="header-title">
-                  <span className="text-black">hoo</span>
-                  <span>doo </span>
+                  <span>hoo</span>
+                  <span className="text-red">doo </span>
                 </span>
               </span>
               <div className="float-right" style={{ marginRight: 20 + "px" }}>

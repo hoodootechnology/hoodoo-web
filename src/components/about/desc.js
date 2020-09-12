@@ -25,11 +25,11 @@ export default class DescPage extends React.Component {
             </p>
           </div>
         </div>
-        <Scroll
+        {/* <Scroll
           {...this.props}
           scrollToElement={this.scrollToElement}
           element="team"
-        />
+        /> */}
       </div>
     )
   }

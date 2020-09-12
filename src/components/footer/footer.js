@@ -115,7 +115,7 @@ export default class Footer extends React.Component {
                                 >
                                   <FaPhoneAlt />
                                 </IconContext.Provider>
-                                <span> {links.title}</span>
+                                <a href="tel:+91-807-350-8734"><span> {links.title}</span></a>
                               </p>
                             )}
                           {links.title === "8073 508 734" &&

@@ -60,7 +60,7 @@ export default class AboutPage extends React.Component {
           setRef={this.DescRef}
           scrollToElement={this.scrollToElementFun}
         />
-        <Team setRef={this.TeamRef} scrollToElement={this.scrollToElementFun} />
+        {/* <Team setRef={this.TeamRef} scrollToElement={this.scrollToElementFun} /> */}
         <Footer />
       </div>
     )

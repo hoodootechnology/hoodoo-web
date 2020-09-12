@@ -29,7 +29,7 @@ export default class CallUsModal extends React.Component {
             Please call us for any queries on
             <br />
             <br />
-            8073 508 734
+            <a href="tel:+91-807-350-8734" className="text-red">8073 508 734</a>
           </h3>
           <br />
           <p>We will be happy to hear from you.</p>

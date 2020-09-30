@@ -6,8 +6,8 @@ import { FaBars, FaTimes, FaCaretRight, FaCheckCircle } from "react-icons/fa"
 import Modal from "react-bootstrap/Modal"
 import Form from "react-bootstrap/Form"
 export default class TrialModal extends React.Component {
-  constructor(props, context) {
-    super(props, context)
+  constructor(props) {
+    super(props)
     this.handleTrialShow = this.handleTrialShow.bind(this)
     this.handleClose = this.handleClose.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
@@ -79,7 +79,7 @@ export default class TrialModal extends React.Component {
                   <Form
                     noValidate
                     validated={this.state.validated}
-                    onSubmit={this.submitForm} className="col mt-4 mx-4 pt-4" key={this.state.name}
+                    onSubmit={this.submitForm} className="col mt-4 mx-4 pt-4" key="trial"
                   >
                     <Form.Group controlId="contactForm">
                       <Form.Label>Name</Form.Label>

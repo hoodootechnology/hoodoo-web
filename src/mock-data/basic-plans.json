@@ -1,36 +1,36 @@
 [{
     "numberOfPeople": 1,
-    "one_meal": "₹3150",
-    "one_meal_breakfast": "₹3500",
-    "two_meals": "₹4250",
-    "two_meals_breakfast": "₹4300"
+    "one_meal": "₹2999",
+    "one_meal_breakfast": "₹3249",
+    "two_meals": "₹3999",
+    "two_meals_breakfast": "₹3999"
   },
   {
     "numberOfPeople": 2,
-    "one_meal": "₹3750",
-    "one_meal_breakfast": "₹4300",
-    "two_meals": "₹5850",
-    "two_meals_breakfast": "₹5400"
+    "one_meal": "₹3499",
+    "one_meal_breakfast": "₹3999",
+    "two_meals": "₹5499",
+    "two_meals_breakfast": "₹4999"
   },
   {
     "numberOfPeople": 3,
-    "one_meal": "₹4850",
-    "one_meal_breakfast": "₹5400",
-    "two_meals": "₹6500",
-    "two_meals_breakfast": "₹6950"
+    "one_meal": "₹4499",
+    "one_meal_breakfast": "₹4999",
+    "two_meals": "₹6499",
+    "two_meals_breakfast": "₹5999"
   },
   {
     "numberOfPeople": 4,
-    "one_meal": "₹5450",
-    "one_meal_breakfast": "₹6550",
-    "two_meals": "₹8050",
-    "two_meals_breakfast": "₹7600"
+    "one_meal": "₹4999",
+    "one_meal_breakfast": "₹5999",
+    "two_meals": "₹7499",
+    "two_meals_breakfast": "₹6999"
   },
   {
     "numberOfPeople": 5,
-    "one_meal": "₹6550",
-    "one_meal_breakfast": "₹7650",
-    "two_meals": "₹9650",
-    "two_meals_breakfast": "₹9200"
+    "one_meal": "₹5999",
+    "one_meal_breakfast": "₹6999",
+    "two_meals": "₹8999",
+    "two_meals_breakfast": "₹8499"
   }
 ]

@@ -48,13 +48,13 @@ export default class Footer extends React.Component {
           link_url: "hello@hoodoo.co.in",
         },
         {
-          title: "8073 508 734",
-          link_url: "8073 508 734",
+          title: "9687 704 308",
+          link_url: "9687 704 308",
           type: "phone",
         },
         {
-          title: "8073 508 734",
-          link_url: "8073 508 734",
+          title: "9687 704 308",
+          link_url: "9687 704 308",
           type: "whatsapp",
         },
       ],
@@ -105,7 +105,7 @@ export default class Footer extends React.Component {
                               </a>
                             </p>
                           )}
-                          {links.title === "8073 508 734" &&
+                          {links.title === "9687 704 308" &&
                             links.type === "phone" && (
                               <p className="footer-links">
                                 <IconContext.Provider
@@ -115,10 +115,10 @@ export default class Footer extends React.Component {
                                 >
                                   <FaPhoneAlt />
                                 </IconContext.Provider>
-                                <a href="tel:+91-807-350-8734"><span> {links.title}</span></a>
+                                <a href="tel:+91-968-770-4308"><span> {links.title}</span></a>
                               </p>
                             )}
-                          {links.title === "8073 508 734" &&
+                          {links.title === "9687 704 308" &&
                             links.type === "whatsapp" && (
                               <p className="footer-links">
                                 <IconContext.Provider

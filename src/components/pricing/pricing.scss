@@ -1,0 +1,104 @@
+@import "../variables.scss";
+.pricing-container {
+  font-family: "Muli", serif;
+  color: $dark-blue; // min-height: 100vh;
+  position: relative; // padding-top: 10%;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  background-color: $sky-blue;
+  @media only screen and (max-width: 767px) {
+    padding-bottom: 0;
+  }
+  .heading {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  .plan-details {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0px -2px 3px #ccc;
+    min-height: 200px;
+    padding: 30px;
+    .text-white {
+      color: white;
+    }
+    .text-red {
+      color: $red;
+    }
+    .heading-1 {
+      font-weight: 400;
+    }
+    &.trial {
+      background-color: $red;
+    }
+    .text-xl {
+      font-size: 50px;
+      position: relative;
+    }
+    .btn-primary {
+      background-color: white;
+      font-size: 14px;
+      border: none;
+      padding: 7px 30px;
+      border-radius: 30px;
+      border: 1px solid $dark-blue;
+      color: $dark-blue;
+      &:hover {
+        color: white;
+        background-color: $dark-blue;
+        border: 1px solid $dark-blue;
+      }
+      &:active,
+      &:focus,
+      &:visited {
+        border: none;
+        box-shadow: none;
+        background-color: $dark-blue;
+        color: white;
+        outline: none;
+      }
+      &.more-details {
+        color: white;
+        border: 1px solid white;
+        background-color: $dark-blue;
+        &:hover {
+          color: $dark-blue;
+          background-color: white;
+          border: 1px solid $dark-blue;
+        }
+      }
+      @media only screen and (max-width: 767px) {
+        padding: 10px;
+        font-size: 12px;
+      }
+    }
+    .trial-data-col {
+      .trial-data {
+        .free {
+          font-size: 20px;
+          font-weight: 400;
+          color: $dark-blue;
+          font-weight: bold;
+        }
+        .strike-text {
+          &::before {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 50%;
+            right: 0;
+            border-top: 8px solid $dark-blue;
+            -webkit-transform: rotate(-15deg);
+            -moz-transform: rotate(-15deg);
+            -ms-transform: rotate(-15deg);
+            -o-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+          }
+        }
+      }
+    }
+  }
+}

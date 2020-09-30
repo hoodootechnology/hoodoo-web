@@ -26,8 +26,11 @@ export default class TrialModal extends React.Component {
   openContactForm() {
     this.setState({ open_form: true })
   }
-  handleTrialShow() {
+  handleTrialShow(from_home) {
     this.setState({ show: true })
+    if (from_home) {
+      this.setState({ open_form: true })
+    }
   }
   handleClose() {
     this.setState({ show: false })
@@ -76,7 +79,7 @@ export default class TrialModal extends React.Component {
                   <Form
                     noValidate
                     validated={this.state.validated}
-                    onSubmit={this.submitForm} className="col mt-4 mx-4" key={this.state.name}
+                    onSubmit={this.submitForm} className="col mt-4 mx-4 pt-4" key={this.state.name}
                   >
                     <Form.Group controlId="contactForm">
                       <Form.Label>Name</Form.Label>
@@ -126,7 +129,7 @@ export default class TrialModal extends React.Component {
                     </div>
                   )
               ]}
-            <div className="col image-col">
+            <div className="col image-col d-none d-md-block">
               <div className="float-right mr-4" onClick={this.handleClose}>
                 <IconContext.Provider
                   value={{

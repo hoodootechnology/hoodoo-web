@@ -7,6 +7,7 @@ import Footer from "../components/footer/footer"
 import SEO from "../components/seo"
 import Home from "../components/home/home"
 import Benefits from "../components/benefits/benefits"
+import Pricing from "../components/pricing/pricing"
 import HowItWorks from "../components/how-it-works/how-it-works"
 import Testimonials from "../components/testimonials/testimonials"
 import LastCallUs from "../components/last-call-us/last-call-us"
@@ -18,12 +19,14 @@ export default class IndexPage extends React.Component {
     this.state = { is_menu_visible: false }
     this.BenefitsRef = React.createRef()
     this.HowItWorksRef = React.createRef()
+    this.PricingRef = React.createRef();
     this.TestimonialsRef = React.createRef()
     this.HomeRef = React.createRef()
     this.timer = null;
     this.allRefs = {
       benefits: this.BenefitsRef,
       howItWorks: this.HowItWorksRef,
+      pricing: this.PricingRef,
       testimonials: this.TestimonialsRef,
       home: this.HomeRef,
     }
@@ -31,12 +34,13 @@ export default class IndexPage extends React.Component {
     this.updateClientData = this.updateClientData.bind(this)
   }
 
-  // componentDidMount() {
-  //   this.timer = setTimeout(() => this.handleTrialShow(), 0)
-  // }
-  // componentWillUnmount() {
-  //   clearTimeout(this.timer);
-  // }
+  componentDidMount() {
+    this.timer = setTimeout(() => this.handleTrialShow(), 5000)
+  }
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+  }
+
   toggleMenu = () => {
     this.setState({ is_menu_visible: !this.state.is_menu_visible })
   }
@@ -115,6 +119,11 @@ export default class IndexPage extends React.Component {
           <HowItWorks
             {...this.props}
             setRef={this.HowItWorksRef}
+            scrollToElement={this.scrollToElementFun}
+          />
+          <Pricing
+            {...this.props}
+            setRef={this.PricingRef}
             scrollToElement={this.scrollToElementFun}
           />
           <Testimonials

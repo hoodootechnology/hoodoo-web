@@ -1,0 +1,170 @@
+@import "../components/variables";
+.plans-container {
+  font-family: "Muli", sans-serif;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  .heading {
+    color: $dark-blue;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .plans-table {
+    border: 1px solid #dee2e6;
+    border-top: none;
+    display: inline-table;
+    th {
+      background-color: $red;
+      color: white;
+      font-weight: lighter;
+      vertical-align: middle;
+      padding: 0.75rem 0;
+      .table-header {
+        padding: 15px 10px;
+      }
+      &:not(:last-child) {
+        .table-header {
+          border-right: 1px solid #262a2e8c;
+        }
+      }
+    }
+  }
+  .disclaimer {
+    color: $dark-blue;
+    font-size: 12px;
+  }
+  .custom-price-container {
+    background: $sky-blue;
+    background: -moz-linear-gradient(left, $sky-blue 0%, $sky-blue 0%, $sky-blue 51%, white 51%, white 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, $sky-blue), color-stop(0%, $sky-blue), color-stop(51%, $sky-blue), color-stop(51%, white), color-stop(100%, white));
+    background: -webkit-linear-gradient(left, $sky-blue 0%, $sky-blue 0%, $sky-blue 51%, white 51%, white 100%);
+    background: -o-linear-gradient(left, $sky-blue 0%, $sky-blue 0%, $sky-blue 51%, white 51%, white 100%);
+    background: -ms-linear-gradient(left, $sky-blue 0%, $sky-blue 0%, $sky-blue 51%, white 51%, white 100%);
+    background: linear-gradient(to right, $sky-blue 0%, $sky-blue 0%, $sky-blue 51%, white 51%, white 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$sky-blue', endColorstr='white', GradientType=1);
+    border-radius: 30px 30px 0 30px;
+    box-shadow: 0px 1px 7px 2px #ccc;
+    .number-input {
+      border: none;
+      background-color: $sky-blue;
+      border-bottom: 2px solid $red;
+      border-radius: 0;
+    }
+    .custom-checkbox {
+      input[type='checkbox'] {
+        &:after {
+          width: 15px;
+          height: 15px;
+          top: -3px;
+          left: -1px;
+          position: relative;
+          background-color: $sky-blue;
+          content: '';
+          display: inline-block;
+          visibility: visible;
+          border: 1px solid $red;
+          border-radius: 2px;
+        }
+        &:checked {
+          &:before {
+            content: '\2713';
+            position: absolute;
+            top: -4px;
+            left: 0px;
+            z-index: 1;
+            color: $red;
+          }
+          &::after {
+            width: 15px;
+            height: 15px;
+            top: -3px;
+            left: -1px;
+            position: relative;
+            background-color: $sky-blue;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 1px solid $red;
+          }
+        }
+      }
+    }
+    .custom-radio {
+      input[type='radio'] {
+        &:after {
+          width: 15px;
+          height: 15px;
+          top: -3px;
+          left: -1px;
+          position: relative;
+          border-radius: 10px;
+          background-color: $sky-blue;
+          content: '';
+          display: inline-block;
+          visibility: visible;
+          border: 1px solid $red;
+        }
+        &:checked {
+          &:before {
+            content: '\A';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            top: 3px;
+            left: 2px;
+            z-index: 1;
+            background-color: $red;
+            border-radius: 10px;
+          }
+          &::after {
+            width: 15px;
+            height: 15px;
+            top: -3px;
+            left: -1px;
+            position: relative;
+            border-radius: 10px;
+            background-color: $sky-blue;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 1px solid $red;
+          }
+        }
+      }
+      &.form-check-inline {
+        input[type='radio'] {
+          &:checked {
+            &:before {
+              top: 8px;
+            }
+          }
+        }
+      }
+    }
+    .btn-primary {
+      background-color: $dark-blue;
+      font-size: 14px;
+      border: none;
+      padding: 7px 20px;
+      border-radius: 30px;
+      border: 1px solid transparent;
+      &:hover {
+        color: $dark-blue;
+        background-color: white;
+        border: 1px solid $dark-blue;
+      }
+      &:active,
+      &:focus,
+      &:visited {
+        border: none;
+        box-shadow: none;
+        background-color: $dark-blue;
+        color: white;
+        outline: none;
+      }
+      @media only screen and (max-width: 767px) {
+        padding: 10px;
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -59,7 +59,7 @@ export default class HowItWorks extends React.Component {
         <Scroll
           {...this.props}
           scrollToElement={this.scrollToElement}
-          element="testimonials"
+          element="pricing"
         />
       </div>
     )

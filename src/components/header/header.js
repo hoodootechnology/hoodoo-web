@@ -212,6 +212,20 @@ export default class Header extends React.Component {
                         </Link>
                       </li>
                       <li className="menu-items">
+                        <Link to="/plans">
+                          <span className="text"> Pricing Plans </span>
+                          <span className="right-caret">
+                            <IconContext.Provider
+                              value={{
+                                className: "right-caret-icon",
+                              }}
+                            >
+                              <FaCaretRight />
+                            </IconContext.Provider>
+                          </span>
+                        </Link>
+                      </li>
+                      <li className="menu-items">
                         <Link to="/about">
                           <span className="text"> About Us </span>
                           <span className="right-caret">

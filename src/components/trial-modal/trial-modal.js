@@ -66,6 +66,14 @@ export default class TrialModal extends React.Component {
             {!this.state.open_form ?
               (
                 <div className="col trial-data-col">
+                  <div className="float-right d-sm-none" onClick={this.handleClose}>
+                    <IconContext.Provider
+                      value={{
+                        className: "close-icon",
+                      }}
+                    >
+                      <FaTimes />
+                    </IconContext.Provider></div>
                   <div className="text-center trial-data">
                     <p className="text-white heading-1">Get 2 meals for</p>
                     <span className="text-xl text-white">₹299</span>
@@ -138,7 +146,7 @@ export default class TrialModal extends React.Component {
                 >
                   <FaTimes />
                 </IconContext.Provider></div>
-              <Image alt="'homepage'" filename="homepage.png" />
+              <Image alt="'homepage'" filename="book-now.svg" />
             </div>
           </div>
         </Modal.Body>

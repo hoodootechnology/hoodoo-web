@@ -9,6 +9,7 @@ import Header from "../components/header/header"
 import Footer from "../components/footer/footer"
 import LastCallUs from "../components/last-call-us/last-call-us"
 import basicPlans from "../mock-data/basic-plans.json"
+import customPlans from "../mock-data/custom-plans.json"
 import "./plans.scss"
 
 export default class Plans extends React.Component {
@@ -22,7 +23,12 @@ export default class Plans extends React.Component {
         dinner: false
       },
       utensils: "yes",
-      cookFrequency: 'one'
+      cookFrequency: 'one',
+      numberPeople: 1,
+      excessQuery: false,
+      totalCost: 0,
+      basePrice: 0,
+      utensilsCost: 0
     }
     this.BenefitsRef = React.createRef()
     this.HowItWorksRef = React.createRef()
@@ -39,6 +45,8 @@ export default class Plans extends React.Component {
     this.scrollToElementFun = this.scrollToElementFun.bind(this)
     this.onUtensilsChanged = this.onUtensilsChanged.bind(this)
     this.onFrequencyChanged = this.onFrequencyChanged.bind(this)
+    this.submitForm = this.submitForm.bind(this)
+    this.handlePeopleChange = this.handlePeopleChange.bind(this)
   }
   toggleMenu = () => {
     this.setState({
@@ -66,10 +74,74 @@ export default class Plans extends React.Component {
       cookFrequency: e.currentTarget.value
     });
   };
+  handlePeopleChange(e) {
+    this.setState({
+      numberPeople: e.currentTarget.value
+    });
+  }
   onMealChanged(type, e) {
     var mealPreference = { ... this.state.mealPreference }
     mealPreference[type] = !mealPreference[type];
     this.setState({ mealPreference });
+  }
+  submitForm() {
+    if (!this.state.numberPeople) {
+      this.setState({
+        totalCost: 0
+      });
+      return
+    }
+    if (this.state.numberPeople > 5) {
+      this.setState({
+        excessQuery: true,
+        totalCost: 0
+      });
+      return true;
+    }
+    let resident_key = "resident_" + this.state.numberPeople;
+    let meal_key;
+    if (!this.state.mealPreference.breakfast && !this.state.mealPreference.lunch && !this.state.mealPreference.dinner) {
+      return;
+      this.setState({
+        excessQuery: true,
+        totalCost: 0
+      });
+    } else if (this.state.mealPreference.breakfast && this.state.mealPreference.lunch && this.state.mealPreference.dinner) {
+      meal_key = "breakfast_two_meals";
+    }
+    else {
+      if (this.state.mealPreference.breakfast) {
+        if ((this.state.mealPreference.lunch && !this.state.mealPreference.dinner) || (!this.state.mealPreference.lunch && this.state.mealPreference.dinner)) {
+          meal_key = "breakfast_one_meal";
+        } else {
+          meal_key = "breakfast";
+        }
+      } else {
+        if (this.state.mealPreference.lunch && this.state.mealPreference.dinner) {
+          meal_key = "two_meals";
+        } else {
+          meal_key = "one_meal";
+        }
+      }
+    }
+    let visits_key = this.state.cookFrequency;
+    var price_obj = customPlans[resident_key][meal_key][visits_key];
+    if (!price_obj) {
+      this.setState({
+        excessQuery: true,
+        totalCost: 0
+      });
+    } else {
+      let total_cost = price_obj.price;
+      if (this.state.utensils === "yes") {
+        total_cost = total_cost + price_obj.utensils;
+      }
+      this.setState({
+        totalCost: total_cost,
+        basePrice: price_obj.price,
+        utensilsCost: price_obj.utensils
+      });
+    }
   }
   render() {
     var price_list = basicPlans;
@@ -111,10 +183,11 @@ export default class Plans extends React.Component {
                 </tbody>
               </table>
               <p className="disclaimer mb-0">*All Charges mentioned above are indicative and may vary depending on the number of visits/day and other factors such as distance/cook experience etc.</p>
-              <p className="disclaimer">**All Charges mentioned above are calculated for 1 visit/day by the cook.</p>
+              <p className="disclaimer mb-0">**All Charges mentioned above are calculated for 1 visit/day by the cook.</p>
+              <p className="disclaimer">**All prices are inclusive of taxes.</p>
             </div>
           </div>
-          {/* <div className="row">
+          <div className="row">
             <div className="col-md-8 offset-md-2">
               <div className="custom-price-container mt-4">
                 <h1 className="heading py-4">Check Custom Plan Prices</h1>
@@ -123,7 +196,6 @@ export default class Plans extends React.Component {
                     <Form
                       noValidate
                       validated={this.state.validated}
-                      onSubmit={this.submitForm}
                     >
                       <div className="row pb-2">
                         <div className="col-md-5 offset-md-1">
@@ -134,8 +206,8 @@ export default class Plans extends React.Component {
                             <Form.Control
                               className="number-input"
                               type="text"
-                              value={this.state.name}
-                              onChange={this.handleNameChange}
+                              value={this.state.numberPeople}
+                              onChange={this.handlePeopleChange}
                               required
                               pattern="[1-9]{1}[0-9]{9}"
                             />
@@ -177,7 +249,7 @@ export default class Plans extends React.Component {
                       </div>
                       <div className="row pb-4">
                         <div className="col-md-5 offset-md-1">
-                          <p className="mb-0 text-right">Number of times cook would everyday</p>
+                          <p className="mb-0 text-right">Number of times cook would come everyday</p>
                         </div>
                         <div className="col-md-5 my-auto">
                           <Form.Check inline
@@ -241,9 +313,11 @@ export default class Plans extends React.Component {
                       </div>
 
                       <div className="text-center mb-4">
-                        <button type="submit" className="btn-primary mx-auto">
+                        <button type="button" className="btn-primary mx-auto" onClick={this.submitForm}>
                           Submit
                   </button>
+                        {this.state.totalCost ? <div><p className="custom-price-text mt-4 mb-2">Subscription price per month : ₹{this.state.totalCost}</p> <p>Base: ₹{this.state.basePrice} + Utensils Cleaning: ₹{this.state.utensilsCost}</p></div> : <p className="custom-price-text mt-4">For this customization, call us for the details.</p>}
+                        {/* {this.state.excessQuery ? <p className="custom-price-text mt-4"></p> : <p></p>} */}
                       </div>
                     </Form>
                   </div>
@@ -253,7 +327,7 @@ export default class Plans extends React.Component {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
         <LastCallUs />
         <Footer />

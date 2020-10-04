@@ -1,0 +1,242 @@
+{
+  "resident_1": {
+    "breakfast": {
+      "one": {
+        "utensils": 200,
+        "price": 2500
+      }
+    },
+    "one_meal": {
+      "one": {
+        "utensils": 200,
+        "price": 2500
+      }
+    },
+    "breakfast_one_meal": {
+      "one": {
+        "utensils": 300,
+        "price": 3000
+      },
+      "two": {
+        "utensils": 300,
+        "price": 4000
+      }
+    },
+    "two_meals": {
+      "one": {
+        "utensils": 300,
+        "price": 3500
+      },
+      "two": {
+        "utensils": 300,
+        "price": 4000
+      }
+    },
+    "breakfast_two_meals": {
+      "one": {
+        "utensils": 400,
+        "price": 4000
+      },
+      "two": {
+        "utensils": 400,
+        "price": 4500
+      },
+      "three": {
+        "utensils": 400,
+        "price": 5000
+      }
+    }
+  },
+  "resident_2": {
+    "breakfast": {
+      "one": {
+        "utensils": 300,
+        "price": 3000
+      }
+    },
+    "one_meal": {
+      "one": {
+        "utensils": 300,
+        "price": 3500
+      }
+    },
+    "breakfast_one_meal": {
+      "one": {
+        "utensils": 400,
+        "price": 4000
+      },
+      "two": {
+        "utensils": 400,
+        "price": 5000
+      }
+    },
+    "two_meals": {
+      "one": {
+        "utensils": 400,
+        "price": 4500
+      },
+      "two": {
+        "utensils": 400,
+        "price": 5500
+      }
+    },
+    "breakfast_two_meals": {
+      "one": {
+        "utensils": 500,
+        "price": 5000
+      },
+      "two": {
+        "utensils": 500,
+        "price": 6000
+      },
+      "three": {
+        "utensils": 500,
+        "price": 7000
+      }
+    }
+  },
+  "resident_3": {
+    "breakfast": {
+      "one": {
+        "utensils": 400,
+        "price": 3500
+      }
+    },
+    "one_meal": {
+      "one": {
+        "utensils": 400,
+        "price": 4500
+      }
+    },
+    "breakfast_one_meal": {
+      "one": {
+        "utensils": 500,
+        "price": 5000
+      },
+      "two": {
+        "utensils": 500,
+        "price": 6000
+      }
+    },
+    "two_meals": {
+      "one": {
+        "utensils": 500,
+        "price": 5500
+      },
+      "two": {
+        "utensils": 500,
+        "price": 6500
+      }
+    },
+    "breakfast_two_meals": {
+      "one": {
+        "utensils": 600,
+        "price": 6000
+      },
+      "two": {
+        "utensils": 600,
+        "price": 7000
+      },
+      "three": {
+        "utensils": 600,
+        "price": 8000
+      }
+    }
+  },
+  "resident_4": {
+    "breakfast": {
+      "one": {
+        "utensils": 500,
+        "price": 4000
+      }
+    },
+    "one_meal": {
+      "one": {
+        "utensils": 500,
+        "price": 5000
+      }
+    },
+    "breakfast_one_meal": {
+      "one": {
+        "utensils": 600,
+        "price": 6000
+      },
+      "two": {
+        "utensils": 600,
+        "price": 7000
+      }
+    },
+    "two_meals": {
+      "one": {
+        "utensils": 600,
+        "price": 6500
+      },
+      "two": {
+        "utensils": 600,
+        "price": 7500
+      }
+    },
+    "breakfast_two_meals": {
+      "one": {
+        "utensils": 700,
+        "price": 7000
+      },
+      "two": {
+        "utensils": 700,
+        "price": 8500
+      },
+      "three": {
+        "utensils": 700,
+        "price": 9500
+      }
+    }
+  },
+  "resident_5": {
+    "breakfast": {
+      "one": {
+        "utensils": 600,
+        "price": 4500
+      }
+    },
+    "one_meal": {
+      "one": {
+        "utensils": 600,
+        "price": 5500
+      }
+    },
+    "breakfast_one_meal": {
+      "one": {
+        "utensils": 700,
+        "price": 6500
+      },
+      "two": {
+        "utensils": 700,
+        "price": 7500
+      }
+    },
+    "two_meals": {
+      "one": {
+        "utensils": 700,
+        "price": 7000
+      },
+      "two": {
+        "utensils": 700,
+        "price": 9000
+      }
+    },
+    "breakfast_two_meals": {
+      "one": {
+        "utensils": 800,
+        "price": 8000
+      },
+      "two": {
+        "utensils": 800,
+        "price": 10000
+      },
+      "three": {
+        "utensils": 800,
+        "price": 11000
+      }
+    }
+  }
+}

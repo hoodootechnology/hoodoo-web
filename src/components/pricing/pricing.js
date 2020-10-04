@@ -59,7 +59,7 @@ export default class Pricing extends React.Component {
               <div className="text-center monthly-data">
                 <p className="heading-1 mb-3">Monthly Plan</p>
                 <br></br>
-                <p className="text-xl text-red">₹5500</p>
+                <p className="text-xl text-red">₹4500</p>
                 <br />
                 <Link to="/plans">
                   <button type="button" className="btn-primary more-details mt-4">More Details</button>

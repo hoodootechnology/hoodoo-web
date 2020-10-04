@@ -28,7 +28,8 @@ export default class Plans extends React.Component {
       excessQuery: false,
       totalCost: 0,
       basePrice: 0,
-      utensilsCost: 0
+      utensilsCost: 0,
+      utensilsSelected: "yes"
     }
     this.BenefitsRef = React.createRef()
     this.HowItWorksRef = React.createRef()
@@ -139,7 +140,8 @@ export default class Plans extends React.Component {
       this.setState({
         totalCost: total_cost,
         basePrice: price_obj.price,
-        utensilsCost: price_obj.utensils
+        utensilsCost: price_obj.utensils,
+        utensilsSelected: this.state.utensils
       });
     }
   }
@@ -199,7 +201,7 @@ export default class Plans extends React.Component {
                     >
                       <div className="row pb-2">
                         <div className="col-md-5 offset-md-1">
-                          <p className="mt-3 mb-0 text-right">Number of people</p>
+                          <p className="mt-3 mb-0 text-md-right">Number of people</p>
                         </div>
                         <div className="col-md-5">
                           <Form.Group controlId="priceForm">
@@ -218,7 +220,7 @@ export default class Plans extends React.Component {
                       </div>
                       <div className="row pb-3">
                         <div className="col-md-5 offset-md-1">
-                          <p className="mb-0 text-right">Meals</p>
+                          <p className="mb-0 text-md-right">Meals</p>
                         </div>
                         <div className="col-md-5">
                           <Form.Check
@@ -249,7 +251,7 @@ export default class Plans extends React.Component {
                       </div>
                       <div className="row pb-4">
                         <div className="col-md-5 offset-md-1">
-                          <p className="mb-0 text-right">Number of times cook would come everyday</p>
+                          <p className="mb-0 text-md-right">Number of times cook would come everyday</p>
                         </div>
                         <div className="col-md-5 my-auto">
                           <Form.Check inline
@@ -286,7 +288,7 @@ export default class Plans extends React.Component {
                       </div>
                       <div className="row pb-2">
                         <div className="col-md-5 offset-md-1">
-                          <p className="mt-0 text-right">Utensils cleaning required?</p>
+                          <p className="mt-0 text-md-right">Utensils cleaning required?</p>
                         </div>
                         <div className="col-md-5">
                           <Form.Check
@@ -316,7 +318,8 @@ export default class Plans extends React.Component {
                         <button type="button" className="btn-primary mx-auto" onClick={this.submitForm}>
                           Submit
                   </button>
-                        {this.state.totalCost ? <div><p className="custom-price-text mt-4 mb-2">Subscription price per month : ₹{this.state.totalCost}</p> <p>Base: ₹{this.state.basePrice} + Utensils Cleaning: ₹{this.state.utensilsCost}</p></div> : <p className="custom-price-text mt-4">For this customization, call us for the details.</p>}
+                        {this.state.totalCost && this.state.utensilsCost ? <div><p className="custom-price-text mt-4 mb-2">Subscription price per month : ₹{this.state.totalCost}</p> <p>
+                          {this.state.utensilsSelected === "yes" ? <span> Base: ₹{this.state.basePrice}+ Utensils Cleaning: ₹{this.state.utensilsCost}</span> : <span></span>} </p></div> : <p className="custom-price-text mt-4">For this customization, call us for the details.</p>}
                         {/* {this.state.excessQuery ? <p className="custom-price-text mt-4"></p> : <p></p>} */}
                       </div>
                     </Form>

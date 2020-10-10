@@ -7,6 +7,7 @@ import { FaBars, FaTimes, FaCaretRight, FaCheckCircle } from "react-icons/fa"
 import Modal from "react-bootstrap/Modal"
 import Form from "react-bootstrap/Form"
 import CallUsModal from "../call-us/call-us"
+import ReactGA from 'react-ga'
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -67,6 +68,10 @@ export default class Header extends React.Component {
     this.setState({
       callback_modal: true,
     })
+    ReactGA.event({
+      category: 'Callback button',
+      action: 'Clicked on callback button to request a callback'
+    })
   }
   callUsModalRef = ref => {
     if (ref) {
@@ -78,6 +83,10 @@ export default class Header extends React.Component {
     if (this.showModal) {
       this.showModal()
     }
+    ReactGA.event({
+      category: 'Contact Us button',
+      action: 'Clicked on contact us button'
+    })
   }
   handleNameChange(e) {
     this.setState({ name: e.target.value })
@@ -101,6 +110,10 @@ export default class Header extends React.Component {
         contact: this.state.contact,
       })
     }
+    ReactGA.event({
+      category: 'Submit For',
+      action: 'Clicked submit on request a callback'
+    })
   }
   render() {
     return (

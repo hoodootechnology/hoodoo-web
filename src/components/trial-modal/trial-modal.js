@@ -5,6 +5,7 @@ import { IconContext } from "react-icons"
 import { FaBars, FaTimes, FaCaretRight, FaCheckCircle } from "react-icons/fa"
 import Modal from "react-bootstrap/Modal"
 import Form from "react-bootstrap/Form"
+import ReactGA from 'react-ga'
 export default class TrialModal extends React.Component {
   constructor(props) {
     super(props)
@@ -25,6 +26,10 @@ export default class TrialModal extends React.Component {
   }
   openContactForm() {
     this.setState({ open_form: true })
+    ReactGA.event({
+      category: 'Book Now',
+      action: 'Clicked Book Now from first page popup'
+    })
   }
   handleTrialShow(from_home) {
     this.setState({ show: true })

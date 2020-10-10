@@ -4,6 +4,7 @@ import "./pricing.scss"
 import Image from "../image"
 import Scroll from "../scroll/scroll"
 import TrialModal from "../trial-modal/trial-modal";
+import ReactGA from 'react-ga'
 
 export default class Pricing extends React.Component {
   constructor(props) {
@@ -28,6 +29,10 @@ export default class Pricing extends React.Component {
     if (this.showModal) {
       this.showModal(true)
     }
+    ReactGA.event({
+      category: 'Book Now',
+      action: 'Clicked Book Now from pricing page'
+    })
   }
   render() {
     return (

@@ -174,4 +174,10 @@
     font-size: 18px;
     font-weight: bold;
   }
+  .form-container {
+    @media only screen and (max-width: 767px) {
+      padding: 10px;
+      margin: 0 30px;
+    }
+  }
 }

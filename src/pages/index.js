@@ -12,6 +12,7 @@ import HowItWorks from "../components/how-it-works/how-it-works"
 import Testimonials from "../components/testimonials/testimonials"
 import LastCallUs from "../components/last-call-us/last-call-us"
 import TrialModal from "../components/trial-modal/trial-modal"
+import Map from "../components/map/map"
 
 export default class IndexPage extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ export default class IndexPage extends React.Component {
     this.PricingRef = React.createRef();
     this.TestimonialsRef = React.createRef()
     this.HomeRef = React.createRef()
+    this.MapRef = React.createRef()
     this.timer = null;
     this.allRefs = {
       benefits: this.BenefitsRef,
@@ -29,6 +31,7 @@ export default class IndexPage extends React.Component {
       pricing: this.PricingRef,
       testimonials: this.TestimonialsRef,
       home: this.HomeRef,
+      map: this.MapRef
     }
     this.scrollToElementFun = this.scrollToElementFun.bind(this)
     this.updateClientData = this.updateClientData.bind(this)
@@ -124,6 +127,11 @@ export default class IndexPage extends React.Component {
           <Pricing
             {...this.props}
             setRef={this.PricingRef}
+            scrollToElement={this.scrollToElementFun}
+          />
+          <Map
+            {...this.props}
+            setRef={this.MapRef}
             scrollToElement={this.scrollToElementFun}
           />
           <Testimonials

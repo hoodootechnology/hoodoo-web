@@ -1,0 +1,67 @@
+@import "../variables.scss";
+.map-container {
+  font-family: "Muli", serif;
+  position: relative;
+  @media only screen and (max-width: 767px) {
+    padding-bottom: 0;
+  }
+  .map-image {
+    display: inline-block;
+    margin-left: 15%;
+    position: relative;
+    @media only screen and (max-width: 767px) {
+      margin-left: 0;
+    }
+    img {
+      height: 400px;
+      width: 400px;
+    }
+    .map-pin {
+      display: inline;
+      position: absolute;
+      width: 30px;
+      img {
+        height: 50px;
+        width: 30px;
+        position: absolute;
+        @media only screen and (max-width: 767px) {
+          height: 30px;
+          width: 25px;
+        }
+      }
+    }
+    .map-name {
+      position: absolute;
+      top: 125px;
+      font-size: 18px;
+      left: 300px;
+      color: $dark-blue;
+      @media only screen and (max-width: 767px) {
+        position: relative;
+        text-align: center;
+        top: 0;
+        display: block;
+        left: 0;
+      }
+    }
+  }
+  .data-container {
+    display: inline-block;
+    position: relative;
+    left: 20%;
+    top: 100px;
+    @media only screen and (max-width: 767px) {
+      left: 0;
+      display: block;
+      text-align: center;
+    }
+    .data-wrapper {
+      .number {
+        color: $red;
+        span {
+          border-bottom: 4px solid #21252963;
+        }
+      }
+    }
+  }
+}

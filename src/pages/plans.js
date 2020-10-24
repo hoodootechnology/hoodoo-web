@@ -20,16 +20,16 @@ export default class Plans extends React.Component {
       mealPreference: {
         breakfast: true,
         lunch: false,
-        dinner: false
+        dinner: false,
       },
       utensils: "yes",
-      cookFrequency: 'one',
+      cookFrequency: "one",
       numberPeople: 1,
       excessQuery: false,
       totalCost: 0,
       basePrice: 0,
       utensilsCost: 0,
-      utensilsSelected: "yes"
+      utensilsSelected: "yes",
     }
     this.BenefitsRef = React.createRef()
     this.HowItWorksRef = React.createRef()
@@ -62,111 +62,138 @@ export default class Plans extends React.Component {
         block: "start",
       })
     } else {
-      window.location.href = "/#" + ref;
+      window.location.href = "/#" + ref
     }
   }
   onUtensilsChanged(e) {
     this.setState({
-      utensils: e.currentTarget.value
-    });
-  };
+      utensils: e.currentTarget.value,
+    })
+  }
   onFrequencyChanged(e) {
     this.setState({
-      cookFrequency: e.currentTarget.value
-    });
-  };
+      cookFrequency: e.currentTarget.value,
+    })
+  }
   handlePeopleChange(e) {
     this.setState({
-      numberPeople: e.currentTarget.value
-    });
+      numberPeople: e.currentTarget.value,
+    })
   }
   onMealChanged(type, e) {
-    var mealPreference = { ... this.state.mealPreference }
-    mealPreference[type] = !mealPreference[type];
-    this.setState({ mealPreference });
+    var mealPreference = { ...this.state.mealPreference }
+    mealPreference[type] = !mealPreference[type]
+    this.setState({ mealPreference })
   }
   submitForm() {
     if (!this.state.numberPeople) {
       this.setState({
-        totalCost: 0
-      });
+        totalCost: 0,
+      })
       return
     }
     if (this.state.numberPeople > 5) {
       this.setState({
         excessQuery: true,
-        totalCost: 0
-      });
-      return true;
+        totalCost: 0,
+      })
+      return true
     }
-    let resident_key = "resident_" + this.state.numberPeople;
-    let meal_key;
-    if (!this.state.mealPreference.breakfast && !this.state.mealPreference.lunch && !this.state.mealPreference.dinner) {
-      return;
+    let resident_key = "resident_" + this.state.numberPeople
+    let meal_key
+    if (
+      !this.state.mealPreference.breakfast &&
+      !this.state.mealPreference.lunch &&
+      !this.state.mealPreference.dinner
+    ) {
+      return
       this.setState({
         excessQuery: true,
-        totalCost: 0
-      });
-    } else if (this.state.mealPreference.breakfast && this.state.mealPreference.lunch && this.state.mealPreference.dinner) {
-      meal_key = "breakfast_two_meals";
-    }
-    else {
+        totalCost: 0,
+      })
+    } else if (
+      this.state.mealPreference.breakfast &&
+      this.state.mealPreference.lunch &&
+      this.state.mealPreference.dinner
+    ) {
+      meal_key = "breakfast_two_meals"
+    } else {
       if (this.state.mealPreference.breakfast) {
-        if ((this.state.mealPreference.lunch && !this.state.mealPreference.dinner) || (!this.state.mealPreference.lunch && this.state.mealPreference.dinner)) {
-          meal_key = "breakfast_one_meal";
+        if (
+          (this.state.mealPreference.lunch &&
+            !this.state.mealPreference.dinner) ||
+          (!this.state.mealPreference.lunch && this.state.mealPreference.dinner)
+        ) {
+          meal_key = "breakfast_one_meal"
         } else {
-          meal_key = "breakfast";
+          meal_key = "breakfast"
         }
       } else {
-        if (this.state.mealPreference.lunch && this.state.mealPreference.dinner) {
-          meal_key = "two_meals";
+        if (
+          this.state.mealPreference.lunch &&
+          this.state.mealPreference.dinner
+        ) {
+          meal_key = "two_meals"
         } else {
-          meal_key = "one_meal";
+          meal_key = "one_meal"
         }
       }
     }
-    let visits_key = this.state.cookFrequency;
-    var price_obj = customPlans[resident_key][meal_key][visits_key];
+    let visits_key = this.state.cookFrequency
+    var price_obj = customPlans[resident_key][meal_key][visits_key]
     if (!price_obj) {
       this.setState({
         excessQuery: true,
-        totalCost: 0
-      });
+        totalCost: 0,
+      })
     } else {
-      let total_cost = price_obj.price;
+      let total_cost = price_obj.price
       if (this.state.utensils === "yes") {
-        total_cost = total_cost + price_obj.utensils;
+        total_cost = total_cost + price_obj.utensils
       }
       this.setState({
         totalCost: total_cost,
         basePrice: price_obj.price,
         utensilsCost: price_obj.utensils,
-        utensilsSelected: this.state.utensils
-      });
+        utensilsSelected: this.state.utensils,
+      })
     }
   }
   render() {
-    var price_list = basicPlans;
+    var price_list = basicPlans
     return (
       <div>
-        <SEO title="Plans | Know about the pricing plans that we have to cater to your different needs" description="Know more about Hoodoo, follow us on social media. Know about the pricing plans that we have to cater to your different needs." />
+        <SEO
+          title="Plans | Know about the pricing plans that we have to cater to your different needs"
+          description="Know more about Chefed, follow us on social media. Know about the pricing plans that we have to cater to your different needs."
+        />
         <Header
           scrollToElement={this.scrollToElementFun}
           toggleMenu={this.toggleMenu}
           is_menu_visible={this.state.is_menu_visible}
         />
         <div className="plans-container">
-          <h1 className="heading">Hoodoo Price Chart</h1>
+          <h1 className="heading">Chefed Price Chart</h1>
           <div className="row">
             <div className="col-md-8 offset-md-2">
               <table className="table table-responsive table-striped plans-table text-center">
                 <thead>
                   <tr>
-                    <th><p className="mb-0 table-header">Residents</p></th>
-                    <th><p className="mb-0 table-header">1 meal</p></th>
-                    <th><p className="mb-0 table-header">Breakfast + 1 meal</p></th>
-                    <th><p className="mb-0 table-header">2 meals</p></th>
-                    <th><p className="mb-0 table-header">Breakfast + 2 meals</p></th>
+                    <th>
+                      <p className="mb-0 table-header">Residents</p>
+                    </th>
+                    <th>
+                      <p className="mb-0 table-header">1 meal</p>
+                    </th>
+                    <th>
+                      <p className="mb-0 table-header">Breakfast + 1 meal</p>
+                    </th>
+                    <th>
+                      <p className="mb-0 table-header">2 meals</p>
+                    </th>
+                    <th>
+                      <p className="mb-0 table-header">Breakfast + 2 meals</p>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -184,8 +211,15 @@ export default class Plans extends React.Component {
                   })}
                 </tbody>
               </table>
-              <p className="disclaimer mb-0">*All Charges mentioned above are indicative and may vary depending on the number of visits/day and other factors such as distance/cook experience etc.</p>
-              <p className="disclaimer mb-0">**All Charges mentioned above are calculated for 1 visit/day by the cook.</p>
+              <p className="disclaimer mb-0">
+                *All Charges mentioned above are indicative and may vary
+                depending on the number of visits/day and other factors such as
+                distance/cook experience etc.
+              </p>
+              <p className="disclaimer mb-0">
+                **All Charges mentioned above are calculated for 1 visit/day by
+                the cook.
+              </p>
               <p className="disclaimer">**All prices are inclusive of taxes.</p>
             </div>
           </div>
@@ -195,13 +229,12 @@ export default class Plans extends React.Component {
                 <h1 className="heading py-4">Check Custom Plan Prices</h1>
                 <div className="row">
                   <div className="col-md-6 form-container">
-                    <Form
-                      noValidate
-                      validated={this.state.validated}
-                    >
+                    <Form noValidate validated={this.state.validated}>
                       <div className="row pb-2">
                         <div className="col-md-5 offset-md-1">
-                          <p className="mt-3 mb-0 text-md-right">Number of people</p>
+                          <p className="mt-3 mb-0 text-md-right">
+                            Number of people
+                          </p>
                         </div>
                         <div className="col-md-5">
                           <Form.Group controlId="priceForm">
@@ -214,7 +247,8 @@ export default class Plans extends React.Component {
                               pattern="[1-9]{1}[0-9]{9}"
                             />
                             <Form.Control.Feedback type="invalid">
-                              Please enter number of people.</Form.Control.Feedback>
+                              Please enter number of people.
+                            </Form.Control.Feedback>
                           </Form.Group>
                         </div>
                       </div>
@@ -226,58 +260,63 @@ export default class Plans extends React.Component {
                           <Form.Check
                             className="custom-checkbox"
                             type="checkbox"
-                            id='breakfast'
+                            id="breakfast"
                             label="Breakfast"
-                            onChange={(e) => this.onMealChanged("breakfast", e)}
+                            onChange={e => this.onMealChanged("breakfast", e)}
                             checked={this.state.mealPreference.breakfast}
                           />
                           <Form.Check
                             className="custom-checkbox"
                             type="checkbox"
-                            id='lunch'
+                            id="lunch"
                             label="Lunch"
-                            onChange={(e) => this.onMealChanged("lunch", e)}
+                            onChange={e => this.onMealChanged("lunch", e)}
                             checked={this.state.mealPreference.lunch}
                           />
                           <Form.Check
                             className="custom-checkbox"
                             type="checkbox"
-                            id='dinner'
+                            id="dinner"
                             label="Dinner"
-                            onChange={(e) => this.onMealChanged("dinner", e)}
+                            onChange={e => this.onMealChanged("dinner", e)}
                             checked={this.state.mealPreference.dinner}
                           />
                         </div>
                       </div>
                       <div className="row pb-4">
                         <div className="col-md-5 offset-md-1">
-                          <p className="mb-0 text-md-right">Number of times cook would come everyday</p>
+                          <p className="mb-0 text-md-right">
+                            Number of times cook would come everyday
+                          </p>
                         </div>
                         <div className="col-md-5 my-auto">
-                          <Form.Check inline
+                          <Form.Check
+                            inline
                             className="custom-radio"
                             type="radio"
-                            id='one'
+                            id="one"
                             label="1"
                             name="cookFrequency"
                             value="one"
                             onChange={this.onFrequencyChanged}
                             checked={this.state.cookFrequency === "one"}
                           />
-                          <Form.Check inline
+                          <Form.Check
+                            inline
                             className="custom-radio"
                             type="radio"
-                            id='two'
+                            id="two"
                             label="2"
                             name="cookFrequency"
                             value="two"
                             onChange={this.onFrequencyChanged}
-                            checked={this.state.cookFrequency === 'two'}
+                            checked={this.state.cookFrequency === "two"}
                           />
-                          <Form.Check inline
+                          <Form.Check
+                            inline
                             className="custom-radio"
                             type="radio"
-                            id='three'
+                            id="three"
                             label="3"
                             name="cookFrequency"
                             value="three"
@@ -288,13 +327,15 @@ export default class Plans extends React.Component {
                       </div>
                       <div className="row pb-2">
                         <div className="col-md-5 offset-md-1">
-                          <p className="mt-0 text-md-right">Utensils cleaning required?</p>
+                          <p className="mt-0 text-md-right">
+                            Utensils cleaning required?
+                          </p>
                         </div>
                         <div className="col-md-5">
                           <Form.Check
                             className="custom-radio"
                             type="radio"
-                            id='yes'
+                            id="yes"
                             label="Yes"
                             name="utensils"
                             value="yes"
@@ -304,7 +345,7 @@ export default class Plans extends React.Component {
                           <Form.Check
                             className="custom-radio"
                             type="radio"
-                            id='no'
+                            id="no"
                             label="No"
                             name="utensils"
                             value="no"
@@ -315,17 +356,46 @@ export default class Plans extends React.Component {
                       </div>
 
                       <div className="text-center mb-4">
-                        <button type="button" className="btn-primary mx-auto" onClick={this.submitForm}>
+                        <button
+                          type="button"
+                          className="btn-primary mx-auto"
+                          onClick={this.submitForm}
+                        >
                           Submit
-                  </button>
-                        {this.state.totalCost && this.state.utensilsCost ? <div><p className="custom-price-text mt-4 mb-2">Subscription price per month : ₹{this.state.totalCost}</p> <p>
-                          {this.state.utensilsSelected === "yes" ? <span> Base: ₹{this.state.basePrice}+ Utensils Cleaning: ₹{this.state.utensilsCost}</span> : <span></span>} </p></div> : <p className="custom-price-text mt-4">For this customization, call us for the details.</p>}
+                        </button>
+                        {this.state.totalCost && this.state.utensilsCost ? (
+                          <div>
+                            <p className="custom-price-text mt-4 mb-2">
+                              Subscription price per month : ₹
+                              {this.state.totalCost}
+                            </p>{" "}
+                            <p>
+                              {this.state.utensilsSelected === "yes" ? (
+                                <span>
+                                  {" "}
+                                  Base: ₹{this.state.basePrice}+ Utensils
+                                  Cleaning: ₹{this.state.utensilsCost}
+                                </span>
+                              ) : (
+                                <span></span>
+                              )}{" "}
+                            </p>
+                          </div>
+                        ) : (
+                          <p className="custom-price-text mt-4">
+                            For this customization, call us for the details.
+                          </p>
+                        )}
                         {/* {this.state.excessQuery ? <p className="custom-price-text mt-4"></p> : <p></p>} */}
                       </div>
                     </Form>
                   </div>
                   <div className="col-md-6 pl-0">
-                    <Image className="mb-0" alt="'custome price'" filename="custom-price.svg" />
+                    <Image
+                      className="mb-0"
+                      alt="'custome price'"
+                      filename="custom-price.svg"
+                    />
                   </div>
                 </div>
               </div>
@@ -334,7 +404,7 @@ export default class Plans extends React.Component {
         </div>
         <LastCallUs />
         <Footer />
-      </div >
+      </div>
     )
   }
 }

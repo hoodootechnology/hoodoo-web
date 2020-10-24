@@ -40,7 +40,7 @@ export default class Blogs extends React.Component {
         block: "start",
       })
     } else {
-      window.location.href = "/#" + ref;
+      window.location.href = "/#" + ref
     }
   }
   render() {
@@ -74,7 +74,10 @@ export default class Blogs extends React.Component {
     ]
     return (
       <div>
-        <SEO title="Blogs | Read the blogs related to Hoodoo to know more about us" description="Know more about Hoodoo, follow us on social media and read our blogs to get familiar with the way we maintain taste and health." />
+        <SEO
+          title="Blogs | Read the blogs related to Chefed to know more about us"
+          description="Know more about Chefed, follow us on social media and read our blogs to get familiar with the way we maintain taste and health."
+        />
         <Header
           scrollToElement={this.scrollToElementFun}
           toggleMenu={this.toggleMenu}

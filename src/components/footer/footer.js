@@ -115,7 +115,9 @@ export default class Footer extends React.Component {
                                 >
                                   <FaPhoneAlt />
                                 </IconContext.Provider>
-                                <a href="tel:+91-968-770-4308"><span> {links.title}</span></a>
+                                <a href="tel:+91-968-770-4308">
+                                  <span> {links.title}</span>
+                                </a>
                               </p>
                             )}
                           {links.title === "9687 704 308" &&
@@ -141,7 +143,7 @@ export default class Footer extends React.Component {
             <hr />
             <div>
               <p className="footer">
-                © {new Date().getFullYear()} hoodoo.co.in. All Rights Reserved.
+                © {new Date().getFullYear()} chefed.co. All Rights Reserved.
               </p>
             </div>
           </div>

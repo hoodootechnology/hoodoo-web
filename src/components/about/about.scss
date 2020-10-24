@@ -40,12 +40,12 @@
     float: none;
     margin: auto;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       height: 300px;
       width: 300px;
       background-color: $light-blue;
-      background-image: url('../../images/hoodoo-logo.svg');
+      background-image: url("../../images/chefed-logo.svg");
       background-size: 150px 150px;
       background-repeat: no-repeat;
       background-position: center center;

@@ -17,7 +17,7 @@ export default class AboutUs extends React.Component {
           <h2 className="about-heading">About Us</h2>
           <h3 className="sub-heading">Who we are</h3>
           <p className="sub-desc">
-            Hoodoo is a cool hiring startup that will not disappoint you.We are
+            Chefed is a cool hiring startup that will not disappoint you.We are
             run by people from IIT Bombay and XLRI Jamshedpur.and currently
             operate in Bengaluru, India.We are a registered organisation whose
             aim is to provide you with hygienic, professional and reliable
@@ -25,7 +25,7 @@ export default class AboutUs extends React.Component {
           </p>
           <h3 className="sub-heading">How we do it</h3>
           <p className="sub-desc">
-            Hoodoo puts the customer in touch with a cook from our inventory of
+            Chefed puts the customer in touch with a cook from our inventory of
             cook who match your requirements. We always ensure that the cooks we
             put our customers in touch with are trustworthy and safe. We make it
             a point to check that our cooks obey proper hygiene and are regular.

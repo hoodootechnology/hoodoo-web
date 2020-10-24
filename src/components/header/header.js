@@ -7,7 +7,7 @@ import { FaBars, FaTimes, FaCaretRight, FaCheckCircle } from "react-icons/fa"
 import Modal from "react-bootstrap/Modal"
 import Form from "react-bootstrap/Form"
 import CallUsModal from "../call-us/call-us"
-import ReactGA from 'react-ga'
+import ReactGA from "react-ga"
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -33,7 +33,6 @@ export default class Header extends React.Component {
     if (this.props.is_menu_visible) {
       this.toggleMenu()
     }
-
   }
   listenScrollEvent = e => {
     if (window.scrollY > 400) {
@@ -69,8 +68,8 @@ export default class Header extends React.Component {
       callback_modal: true,
     })
     ReactGA.event({
-      category: 'Callback button',
-      action: 'Clicked on callback button to request a callback'
+      category: "Callback button",
+      action: "Clicked on callback button to request a callback",
     })
   }
   callUsModalRef = ref => {
@@ -84,8 +83,8 @@ export default class Header extends React.Component {
       this.showModal()
     }
     ReactGA.event({
-      category: 'Contact Us button',
-      action: 'Clicked on contact us button'
+      category: "Contact Us button",
+      action: "Clicked on contact us button",
     })
   }
   handleNameChange(e) {
@@ -111,8 +110,8 @@ export default class Header extends React.Component {
       })
     }
     ReactGA.event({
-      category: 'Submit For',
-      action: 'Clicked submit on request a callback'
+      category: "Submit For",
+      action: "Clicked submit on request a callback",
     })
   }
   render() {
@@ -124,16 +123,15 @@ export default class Header extends React.Component {
               <span
                 role="button"
                 tabIndex={0}
-                aria-label="Hoodoo Logo"
+                aria-label="Chefed Logo"
                 onClick={() => this.scrollToElement("home")}
                 onKeyDown={() => this.scrollToElement("home")}
               >
                 <span className="logo-image">
-                  <Image alt="Hoodoo" filename="hoodoo-logo.svg" />
+                  <Image alt="Chefed" filename="chefed-logo.svg" />
                 </span>
                 <span className="header-title">
-                  <span>hoo</span>
-                  <span className="text-red">doo </span>
+                  <Image alt="Chefed" filename="chefed.svg" />
                 </span>
               </span>
               <div className="float-right" style={{ marginRight: 20 + "px" }}>
@@ -327,18 +325,18 @@ export default class Header extends React.Component {
                 </div>
               </Form>
             ) : (
-                <div className="text-center">
-                  <IconContext.Provider
-                    value={{
-                      className: "check-icon",
-                    }}
-                  >
-                    <FaCheckCircle />
-                  </IconContext.Provider>
-                  <h3 className="thank-you">Thank You!</h3>
-                  <p>We'll get in touch with you shortly.</p>
-                </div>
-              )}
+              <div className="text-center">
+                <IconContext.Provider
+                  value={{
+                    className: "check-icon",
+                  }}
+                >
+                  <FaCheckCircle />
+                </IconContext.Provider>
+                <h3 className="thank-you">Thank You!</h3>
+                <p>We'll get in touch with you shortly.</p>
+              </div>
+            )}
           </Modal.Body>
         </Modal>
         <CallUsModal ref={this.callUsModalRef}></CallUsModal>

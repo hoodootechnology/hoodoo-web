@@ -20,18 +20,18 @@ export default class IndexPage extends React.Component {
     this.state = { is_menu_visible: false }
     this.BenefitsRef = React.createRef()
     this.HowItWorksRef = React.createRef()
-    this.PricingRef = React.createRef();
+    this.PricingRef = React.createRef()
     this.TestimonialsRef = React.createRef()
     this.HomeRef = React.createRef()
     this.MapRef = React.createRef()
-    this.timer = null;
+    this.timer = null
     this.allRefs = {
       benefits: this.BenefitsRef,
       howItWorks: this.HowItWorksRef,
       pricing: this.PricingRef,
       testimonials: this.TestimonialsRef,
       home: this.HomeRef,
-      map: this.MapRef
+      map: this.MapRef,
     }
     this.scrollToElementFun = this.scrollToElementFun.bind(this)
     this.updateClientData = this.updateClientData.bind(this)
@@ -41,7 +41,7 @@ export default class IndexPage extends React.Component {
     this.timer = setTimeout(() => this.handleTrialShow(), 5000)
   }
   componentWillUnmount() {
-    clearTimeout(this.timer);
+    clearTimeout(this.timer)
   }
 
   toggleMenu = () => {
@@ -77,7 +77,7 @@ export default class IndexPage extends React.Component {
     form.set("name", data.name)
     form.set("contact", data.contact)
     form.set("date", new Date().toLocaleDateString())
-    form.set("type", 'BOOKING')
+    form.set("type", "BOOKING")
     fetch(url, { method: "POST", body: form })
       .then(response => console.log("Success!", response))
       .catch(error => console.error("Error!", error.message))
@@ -104,8 +104,9 @@ export default class IndexPage extends React.Component {
           updateClientData={this.updateClientData}
         />
         <div>
-          <SEO title="Welcome to Hoodoo - Get cooks in Bangalore" />
-          <TrialModal ref={this.trialModalRef}
+          <SEO title="Welcome to Chefed - Get cooks in Bangalore" />
+          <TrialModal
+            ref={this.trialModalRef}
             updateBookingData={this.updateBookingData}
           />
           <Home

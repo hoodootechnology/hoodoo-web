@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `hoodoo`,
+    title: `chefed`,
     description: `Do you need a cook in Bangalore and are worried about Covid19? We can help. Get your free trial today!`,
     author: `@hoodoocooks`,
-    siteUrl: 'https://www.hoodoo.co.in',
+    siteUrl: 'https://www.chefed.co',
     keywords: [
       "Cooks",
       "Bangalore",
@@ -11,7 +11,8 @@ module.exports = {
       "Bengaluru",
       "Homemade",
       "food",
-      "Hoodoo",
+      "Chefed",
+      "Chef",
       "Hygienic",
       "Covid19",
       "Agency",
@@ -42,8 +43,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://www.hoodoo.co.in',
-        sitemap: 'https://www.hoodoo.co.in/sitemap.xml',
+        host: 'https://www.chefed.co',
+        sitemap: 'https://www.chefed.co/sitemap.xml',
         policy: [{
           userAgent: '*',
           allow: '/'
@@ -53,7 +54,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
-        siteUrl: `https://www.hoodoo.co.in`,
+        siteUrl: `https://www.chefed.co`,
       },
     },
     {
@@ -74,7 +75,7 @@ module.exports = {
         background_color: `#3D5A80`,
         theme_color: `#3D5A80`,
         display: `minimal-ui`,
-        icon: `src/images/hoodoo-logo.svg`, // This path is relative to the root of the site.
+        icon: `src/images/chefed-logo.svg`, // This path is relative to the root of the site.
       },
     },
     {

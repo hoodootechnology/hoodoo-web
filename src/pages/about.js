@@ -49,7 +49,10 @@ export default class AboutPage extends React.Component {
   render() {
     return (
       <div>
-        <SEO title="About Hoodoo | How we provide taste with no compromise on your health" description="Find out about Hoodoo team members and the way we work and take care of our customers." />
+        <SEO
+          title="About Chefed | How we provide taste with no compromise on your health"
+          description="Find out about Chefed team members and the way we work and take care of our customers."
+        />
         <Header
           scrollToElement={this.scrollToElementFun}
           toggleMenu={this.toggleMenu}
